@@ -95,3 +95,27 @@ a:any-link {
   #nav_item:hover {
     color:rgb(134, 22, 87);
   }
+
+  .row {
+    display:flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  #btn {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 70px;
+    padding-right: 70px;
+    border-radius: 20px;
+    font-family: 'Lobster Two', cursive;
+    font-size: 30px;
+    border:none;
+    background-color: rgb(4, 57, 94);
+    color:white;
+  }
+
+  #btn:hover {
+    background-color: rgb(2, 35, 59);
+  }
