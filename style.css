@@ -25,7 +25,7 @@ a:any-link {
 }
 
 .navbar {
-    background-color:rgb(149, 184, 209);
+    background-color: rgb(4, 57, 94);
     position:absolute;
     left:0;
     right:0;
@@ -66,6 +66,7 @@ a:any-link {
     text-align: right;
     display: inline-block;
     line-height: 40px;
+    margin-top:20px;
   }
 
   /*  
@@ -81,19 +82,23 @@ a:any-link {
           other. 
     */
     padding: 10px;
+    padding-left:10px;
     display: inline-block;
     line-height: 40px;
     font-family: 'Lobster Two', cursive;
-    color: white;
-    text-decoration: none;
+    background-color: rgb(134, 22, 87);
+    border-radius: 15px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    margin-left: 15px;
   }
 
   #nav_item {
-    color: rgb(213, 106, 160);
+    color: rgb(233, 175, 204)
   }
 
-  #nav_item:hover {
-    color:rgb(134, 22, 87);
+  .navbar li:hover {
+    background-color:rgb(105, 17, 69);
   }
 
   .row {
@@ -103,7 +108,7 @@ a:any-link {
     margin-left: -15px;
   }
 
-  #btn {
+  #sign_in_btn {
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 70px;
@@ -114,8 +119,11 @@ a:any-link {
     border:none;
     background-color: rgb(4, 57, 94);
     color:white;
+    margin-left:10px;
+    margin-right:10px;
   }
 
-  #btn:hover {
+  #sign_in_btn:hover {
     background-color: rgb(2, 35, 59);
+    cursor:pointer;
   }
