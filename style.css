@@ -1,6 +1,4 @@
-/* To be populated as we design our landing page */
-
-  @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
 h1 {
     font-family: 'Lobster Two', cursive;
@@ -8,12 +6,6 @@ h1 {
 
 body {
     background-color:rgb(189, 212, 231);
-}
-
-a:any-link {
-    color:white;
-    text-decoration: none;
-    font-size: 30px;
 }
 
 .container {
@@ -94,7 +86,9 @@ a:any-link {
   }
 
   #nav_item {
-    color: rgb(233, 175, 204)
+    color: rgb(233, 175, 204);
+    text-decoration: none;
+    font-size: 30px;
   }
 
   .navbar li:hover {
