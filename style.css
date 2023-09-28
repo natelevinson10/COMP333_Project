@@ -1,1 +1,123 @@
-/* To be populated as we design our landing page */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
+h1 {
+    font-family: 'Lobster Two', cursive;
+  }
+
+body {
+    background-color:rgb(189, 212, 231);
+}
+
+.container {
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.navbar {
+    background-color: rgb(4, 59, 98);
+    position:absolute;
+    left:0;
+    right:0;
+    top: 0;
+    padding-left:20px
+}
+
+.navbar_logo {
+    margin: 0 auto;
+    /* 
+          No padding.
+    */
+    padding: 0;
+    /* 
+          For navbars use background color that stands out.
+    */
+    /*background-color: black;*/
+    text-align: right;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.navbar ul {
+    /* 
+          Remove bullet points.
+    */
+    list-style: none;
+    width: 75%;
+    margin: 0 auto;
+    /* 
+          No padding.
+    */
+    padding: 0;
+    /* 
+          For navbars use background color that stands out.
+    */
+    /*background-color: black;*/
+    text-align: right;
+    display: inline-block;
+    line-height: 40px;
+    padding-top:40px;
+  }
+
+  /*  
+    Style individual list items.
+*/
+.navbar li {
+    width: 100 px;
+    /*background-color: #000;
+    border: 1px solid red;
+    */
+    /* 
+          Show the navbar elements next to each other instead of on top of each 
+          other. 
+    */
+    padding: 10px;
+    padding-left:10px;
+    display: inline-block;
+    line-height: 40px;
+    font-family: 'Lobster Two', cursive;
+    background-color: rgb(134, 22, 87);
+    border-radius: 15px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    margin-left: 15px;
+  }
+
+  #nav_item {
+    color: rgb(233, 175, 204);
+    text-decoration: none;
+    font-size: 30px;
+  }
+
+  .navbar li:hover {
+    background-color:rgb(105, 17, 69);
+  }
+
+  .row {
+    display:flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  #sign_in_btn {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 70px;
+    padding-right: 70px;
+    border-radius: 20px;
+    font-family: 'Lobster Two', cursive;
+    font-size: 30px;
+    border:none;
+    background-color: rgb(4, 59, 98);
+    color:white;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  #sign_in_btn:hover {
+    background-color: rgb(2, 35, 59);
+    cursor:pointer;
+  }
