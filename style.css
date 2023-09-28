@@ -87,3 +87,11 @@ a:any-link {
     color: white;
     text-decoration: none;
   }
+
+  #nav_item {
+    color: rgb(213, 106, 160);
+  }
+
+  #nav_item:hover {
+    color:rgb(134, 22, 87);
+  }
