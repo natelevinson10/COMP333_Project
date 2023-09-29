@@ -76,7 +76,7 @@ body {
     display: inline-block;
     line-height: 40px;
     font-family: 'Lobster Two', cursive;
-    background-color: rgb(134, 22, 87);
+    background-color: rgb(233, 175, 204);
     border-radius: 15px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
@@ -84,13 +84,13 @@ body {
   }
 
   #nav_item {
-    color: rgb(233, 175, 204);
+    color: rgb(105, 17, 69); 
     text-decoration: none;
     font-size: 30px;
   }
 
   .navbar li:hover {
-    background-color:rgb(105, 17, 69);
+    background-color:rgb(224, 143, 184);
   }
 
   .row {
