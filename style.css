@@ -20,7 +20,8 @@ body {
     left:0;
     right:0;
     top: 0;
-    padding-left:20px
+    padding-left:20px;
+    position:fixed;
 }
 
 .navbar_logo {
