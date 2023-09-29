@@ -6,11 +6,14 @@ h1 {
 
   h4 {
     font-family: 'Lobster Two', cursive;
+
   }
 
   p {
     font-family: 'Lobster Two', cursive;
-    color: rgb(4, 57, 94)
+    color: rgb(4, 57, 94);
+    font-size: 20px;
+
   }
 
 body {
@@ -136,8 +139,13 @@ body {
     cursor:pointer;
   }
 
-  .container-features{
+  .home-features{
     background-color: #A0B9C6;
+    padding-top: 100px; 
+    padding-bottom: 100px;
+  }
+
+  .container-features{
     padding-top: 100px; 
     padding-bottom: 100px;
   }
@@ -151,7 +159,8 @@ body {
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 220px;
+    width: 250px;
+    height: 350px;
     padding: 20px; 
     text-align: center;
     display: flex;
