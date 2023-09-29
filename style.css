@@ -14,6 +14,9 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
+    margin: 0;
+    padding: 0;
+  
 }
 
 .navbar {
@@ -120,4 +123,24 @@ body {
   #sign_in_btn:hover {
     background-color: rgb(2, 35, 59);
     cursor:pointer;
+  }
+  .cards-row {
+    display:flex;
+    justify-content: center;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 200px;
+    margin: 0 50px;
+    
+    }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .card-info {
+    padding: 2px 16px;
   }
