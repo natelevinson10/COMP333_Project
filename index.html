@@ -6,43 +6,40 @@
     <title>LoveNotes</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href= "public/music.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
 </head>
 
-<section class = "home_landing"> 
-    <div class = "container">
-        <div id="navbar" class="row navbar">
-            <div class="navbar_logo" style= "padding-top:20px;">
-                <p><a href="index.html#home">
-                <img src="public/logo.png" id="logo" alt="lovenotes logo" height="50px"/>
-                </a></p>
-            </div>
-            <ul>
-                <li><a id="nav_item" href="index.html#features">Features</a></li>
-                <li><a id="nav_item" href="index.html#">Testimonials</a></li>
-                <li><a id="nav_item" href="index.html#">Packages</a></li>
-                <li><a id="nav_item" href="index.html#">The Team</a></li>
-                <li><a id="nav_item" href="index.html#">Account</a></li>
-                </ul>
-            </div>
-    </div>
-    <div class="home" id="home" style="padding-top:100px; padding-bottom:100px;">
-        <div class="container">
-            <div class="row">
-                <div style="margin-left:50px; width:40%">
-                    <h1 style="font-size:60px; text-align:center; color: rgb(4, 57, 94);";>Share your music tastes with the world</h1>
-                    <p></p>
-                    <div class="sign_in_btns" style="text-align:center;">
-                        <button id="sign_in_btn">Sign up</button>
-                        <button id="sign_in_btn">Log in</button>
-                    </div>
-                </div>
-                <div class="world_image" style="padding-top: 30px; margin-left: 150px;">
-                    <img src="public/world.png" id="logo" alt="world image" height="400px"/>
-                </div>
+<div class = "container">
+    <div id="navbar" class="row navbar">
+        <div class="navbar_logo" style= "padding-top:20px;">
+            <p><a href="index.html#home">
+            <img src="public/logo.png" id="logo" alt="lovenotes logo" height="50px"/>
+            </a></p>
+        </div>
+        <ul>
+            <li><a id="nav_item" href="index.html#features">Features</a></li>
+            <li><a id="nav_item" href="index.html#testimonials">Testimonials</a></li>
+            <li><a id="nav_item" href="index.html#">Packages</a></li>
+            <li><a id="nav_item" href="index.html#">The Team</a></li>
+            <li><a id="nav_item" href="index.html#">Account</a></li>
+            </ul>
+        </div>
+</div>
+<div id="home" class="container" style="padding-top:100px; padding-bottom:100px;">
+    <div class="row home">
+        <div class="left_text" style="margin-left:50px; width:40%">
+            <h1 style="font-size:60px; text-align:center; color: rgb(4, 57, 94);";>Share your music tastes with the world</h1>
+            <p></p>
+            <div class="sign_in_btns" style="text-align:center;">
+                <button id="sign_in_btn">Sign up</button>
+                <button id="sign_in_btn">Log in</button>
             </div>
         </div>
+        <div class="world_image" style="padding-top: 30px; margin-left: 150px;">
+            <img src="public/world.png" id="logo" alt="world image" height="400px"/>
+        </div>
     </div>
-</section>
+</div>
 
 <section class = "home_features"> 
     <div class="home-features" id="home-features">
@@ -76,3 +73,37 @@
         </div>
     </div>
 </section>
+
+<div class="container">
+    <h1 id="testimonials_header">Testimonials</h1>
+    <div id="testimonials" class="row testimonals">
+        <div id="review_external">
+            <div id="review_internal">
+                <p id="review_text" style="height:50%">"This site helped me discover the song that would go on to be played at my wedding!"</p>
+                <p id="review_text" style="height:18%"> - Waverly Smart,<br>Wesleyan '27</p>
+                <p id="insta_icon"><a href="https://www.instagram.com/waverly_smart/#" target="_blank">
+                    <i class="fa-brands fa-instagram fa-3x" style="color: #033b62;"></i>
+                </a></p>            
+            </div>
+        </div>
+        <div id="review_external">
+            <div id="review_internal">
+                <p id="review_text" style="height:50%">"Mr. Worldwide approves."</p>
+                <p id="review_text" style="height:18%"> - Pitbull,<br>Musician</p>
+                <p id="insta_icon"><a href="https://www.instagram.com/pitbull/#" target="_blank">
+                    <i class="fa-brands fa-instagram fa-3x" style="color: #033b62;"></i>
+                </a></p>     
+            </div>
+        </div>
+        <div id="review_external">
+            <div id="review_internal">
+                <p id="review_text" style="height:50%">"This website is a national treasure."</p>
+                <p id="review_text" style="height:18%"> - Joe Biden,<br>POTUS</p>
+                <p id="insta_icon"><a href="https://www.instagram.com/potus/#" target="_blank">
+                    <i class="fa-brands fa-instagram fa-3x" style="color: #033b62;"></i>
+                </a></p>     
+            </div>
+        </div>
+    </div>
+
+</div>
