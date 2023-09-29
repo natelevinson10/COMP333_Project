@@ -186,7 +186,8 @@ body {
     padding: 2px 16px;
   }
 
-  #testimonials_header {
+  #testimonials_header,
+  #home-features {
     color: rgb(4, 59, 98);
     font-family: 'Lobster Two', cursive;
     font-weight: 800;
