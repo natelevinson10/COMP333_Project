@@ -129,7 +129,7 @@ body {
     font-size: 30px;
     border:none;
     background-color: rgb(4, 59, 98);
-    color:white;
+    color:rgb(233, 175, 204);
     margin-left:10px;
     margin-right:10px;
   }
@@ -157,7 +157,7 @@ body {
   }
 
   .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgb(105, 17, 69); 
     transition: 0.3s;
     width: 250px;
     height: 350px;
@@ -168,7 +168,7 @@ body {
     align-items: center;
     margin: 0 70px;
     margin-top: 50px;
-    background-color: #afc5d1;
+    background-color: rgb(233, 175, 204);
     }
   
     .card img {
@@ -204,7 +204,7 @@ body {
   }
 
   #review_internal {
-    background-color: white;
+    background-color: rgb(233, 175, 204);
     height: 360px;
     margin: 20px 20px;
   }
