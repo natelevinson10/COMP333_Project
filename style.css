@@ -24,12 +24,10 @@ body {
 
 .container {
     margin: 100px 60px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 100px 15px;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 0;
 }
 
 .navbar {
@@ -180,7 +178,7 @@ body {
     padding: 2px 16px;
   }
 
-  #testimonials_header {
+  #header {
     color: rgb(4, 59, 98);
     font-family: 'Lobster Two', cursive;
     font-weight: 800;
