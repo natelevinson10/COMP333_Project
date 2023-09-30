@@ -37,6 +37,7 @@ body {
     top: 0;
     padding-left:20px;
     position:fixed;
+    flex-wrap: nowrap;
 }
 
 .navbar_logo {
@@ -80,13 +81,6 @@ body {
 */
 .navbar li {
     width: 100 px;
-    /*background-color: #000;
-    border: 1px solid red;
-    */
-    /* 
-          Show the navbar elements next to each other instead of on top of each 
-          other. 
-    */
     padding: 10px;
     padding-left:10px;
     display: inline-block;
@@ -242,3 +236,50 @@ body {
     height: 17%;
     font-size: 25px;
   }
+
+  @media (max-width: 768px) {
+    
+    .home .left_text {
+      margin: 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .home .left_text h1 {
+      font-size: 40px;
+    }
+    
+    .home .top_charts h1{
+      margin-left: -50px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .home .top_charts iframe {
+      width: 100%;
+      display: block;
+      margin-left: -50px;
+    }
+
+    .testimonals #review_external {
+      width: 90%;
+      margin: 10px 5%;
+    }
+  
+    .testimonals #review_internal {
+      width: 90%;
+    }
+
+    .about_us #about_external {
+      width: 90%;
+      margin: 10px 5%;
+    }
+  
+    .about_us #about_internal {
+      width: 90%;
+    }
+
+    #sign_in_btn {
+      margin-top: 20px; 
+  }
+}
