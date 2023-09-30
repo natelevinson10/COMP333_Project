@@ -23,13 +23,10 @@ body {
 }
 
 .container {
-    margin: 100px 60px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 100px 15px;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 0;
 }
 
 .navbar {
@@ -115,6 +112,7 @@ body {
   .row {
     display:flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-right: -15px;
     margin-left: -15px;
   }
@@ -129,7 +127,7 @@ body {
     font-size: 30px;
     border:none;
     background-color: rgb(4, 59, 98);
-    color:white;
+    color:rgb(233, 175, 204);
     margin-left:10px;
     margin-right:10px;
   }
@@ -157,7 +155,7 @@ body {
   }
 
   .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgb(105, 17, 69); 
     transition: 0.3s;
     width: 250px;
     height: 350px;
@@ -168,26 +166,18 @@ body {
     align-items: center;
     margin: 0 70px;
     margin-top: 50px;
-    background-color: #afc5d1;
+    background-color: rgb(233, 175, 204);
     }
-  
-    .card img {
-      width: 100%; 
-      height: auto; 
-      max-height: 150px; 
-  }
-
 
   .card:hover {
-    box-shadow: 0 8px 30px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 30px 0 rgb(105, 17, 69); 
   }
   
   .card-info {
     padding: 2px 16px;
   }
 
-  #testimonials_header,
-  #home-features {
+  #header {
     color: rgb(4, 59, 98);
     font-family: 'Lobster Two', cursive;
     font-weight: 800;
@@ -196,17 +186,21 @@ body {
   }
 
   #review_external {
-    width:30%;
     min-width: 375px;
+    width:436px;
     height:400px;
     margin: 10px 20px;
     text-align: center;
     background-color: rgb(4, 59, 98);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #review_internal {
-    background-color: white;
+    background-color: rgb(233, 175, 204);
     height: 360px;
+    width: 396px;
     margin: 20px 20px;
   }
 
@@ -222,4 +216,29 @@ body {
   #insta_icon{
     margin-block-start: 0;
     margin-block-end: 0;
+  }
+
+  #about_external {
+    min-width: 375px;
+    width:436px;
+    height:560px;
+    margin: 10px 100px;
+    text-align: center;
+    background-color: rgb(105, 17, 69);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #about_internal {
+    background-color: rgb(233, 175, 204);
+    width: 416px;
+    height: 540px;
+    margin: 10px 10px;
+  }
+
+  #description_text {
+    color: rgb(105, 17, 69);
+    height: 17%;
+    font-size: 25px;
   }
