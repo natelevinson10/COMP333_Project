@@ -306,6 +306,17 @@ body {
   padding-right: 50px;
 }
 
+#navbar_list {
+  list-style: none;
+  width: 75%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: right;
+  display: none;
+  line-height: 40px;
+  padding-top:40px;
+}
+
 @media screen and (max-width:1000px) {
     #navbar_items { display: none !important; }
     #more-icon  { display: block; visibility: visible; }
