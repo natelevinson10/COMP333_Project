@@ -297,3 +297,22 @@ body {
     width: 90%;
   }
 }
+
+#more-icon {
+  display: none;
+  visibility: hidden;
+
+  width: 100 px;
+  padding: 10px;
+  padding-left:10px;
+  display: inline-block;
+  line-height: 40px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  margin-left: 15px;
+}
+
+@media screen and (max-width:900px), screen and (max-height:500px) {
+    #navbar_items { display: none !important; }
+    #more-icon  { display: block; visibility: visible; }
+}
