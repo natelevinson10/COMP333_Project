@@ -6,6 +6,9 @@ h1 {
 
   h4 {
     font-family: 'Lobster Two', cursive;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(4, 57, 94);
 
   }
 
@@ -42,43 +45,23 @@ body {
 
 .navbar_logo {
     margin: 0 auto;
-    /* 
-          No padding.
-    */
     padding: 0;
-    /* 
-          For navbars use background color that stands out.
-    */
-    /*background-color: black;*/
     text-align: right;
     display: inline-block;
     line-height: 40px;
 }
 
 .navbar ul {
-    /* 
-          Remove bullet points.
-    */
     list-style: none;
     width: 75%;
     margin: 0 auto;
-    /* 
-          No padding.
-    */
     padding: 0;
-    /* 
-          For navbars use background color that stands out.
-    */
-    /*background-color: black;*/
     text-align: right;
     display: inline-block;
     line-height: 40px;
     padding-top:40px;
   }
 
-  /*  
-    Style individual list items.
-*/
 .navbar li {
     width: 100 px;
     padding: 10px;
@@ -131,15 +114,10 @@ body {
     cursor:pointer;
   }
 
-  .home-features{
-    background-color: #A0B9C6;
-    padding-top: 100px; 
-    padding-bottom: 100px;
-  }
-
-  .container-features{
-    padding-top: 100px; 
-    padding-bottom: 100px;
+  #spotify_iframe {
+    border-radius: 12px;
+    height: 500px;
+    box-shadow:  0 0 20px rgb(105, 17, 69);
   }
   
   .cards-row {
