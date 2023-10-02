@@ -61,6 +61,7 @@ body {
 
 .navbar_logo {
   margin: 0 auto;
+  margin-left: 20px;
   padding: 0;
   text-align: right;
   display: inline-block;
@@ -324,26 +325,29 @@ body {
 }
 
 #navbar_list li {
-  width: 100 px;
-  padding: 10px;
-  padding-left:10px;
   line-height: 40px;
   font-family: 'Lobster Two', cursive;
-  background-color: rgb(233, 175, 204);
-  border-radius: 15px;
-  padding-top: 2.5px;
-  padding-bottom: 2.5px;
-  margin-left: 15px;
+  background-color: transparent;
 }
 
 #nav_item_list {
+  background-color: rgb(233, 175, 204);
   color: rgb(105, 17, 69); 
+  border-radius: 15px;
   text-decoration: none;
   font-size: 30px;
+  padding: 2.5px;
 }
 
+#nav_item_list:hover {
+  background-color:rgb(224, 143, 184);
+}
 
 @media screen and (max-width:1000px) {
     #navbar_items { display: none !important; }
     #more-icon  { display: block; visibility: visible; }
+}
+
+@media screen and (min-width:1000px) {
+  #navbar_list { display: none !important; }
 }
