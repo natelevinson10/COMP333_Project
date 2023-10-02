@@ -313,8 +313,8 @@ body {
   padding: 0;
   text-align: right;
   display: none;
+  flex-direction: column;
   line-height: 40px;
-  padding-top:40px;
 }
 
 @media screen and (max-width:1000px) {
