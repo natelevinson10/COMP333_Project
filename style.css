@@ -306,6 +306,11 @@ body {
   padding-right: 50px;
 }
 
+#more-button {
+  border: none;
+  background-color: transparent;
+}
+
 #navbar_list {
   list-style: none;
   width: 75%;
