@@ -318,10 +318,30 @@ body {
   width: 75%;
   margin: 0 auto;
   padding: 0;
-  text-align: right;
+  text-align: center;
   flex-direction: column;
   line-height: 40px;
 }
+
+#navbar_list li {
+  width: 100 px;
+  padding: 10px;
+  padding-left:10px;
+  line-height: 40px;
+  font-family: 'Lobster Two', cursive;
+  background-color: rgb(233, 175, 204);
+  border-radius: 15px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  margin-left: 15px;
+}
+
+#nav_item_list {
+  color: rgb(105, 17, 69); 
+  text-decoration: none;
+  font-size: 30px;
+}
+
 
 @media screen and (max-width:1000px) {
     #navbar_items { display: none !important; }
