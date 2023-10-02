@@ -302,22 +302,23 @@ body {
   display: none;
   visibility: hidden;
   line-height: 40px;
-  padding-top: 45px;
-  padding-right: 50px;
 }
 
 #more-button {
   border: none;
   background-color: transparent;
+  padding-top: 45px;
+  padding-right: 50px;
+  height: 90px;
 }
 
 #navbar_list {
+  display:none;
   list-style: none;
   width: 75%;
   margin: 0 auto;
   padding: 0;
   text-align: right;
-  display: none;
   flex-direction: column;
   line-height: 40px;
 }
