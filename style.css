@@ -242,6 +242,15 @@ body {
 @media (max-width: 768px) {
   
   /*Landing*/
+
+  .home {
+    margin-left: -50px;
+  }
+
+  .home .sign_in_btns {
+    margin-left: -10px;
+  }
+
   .home .left_text {
     margin: 0;
     width: 100%;
