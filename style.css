@@ -325,13 +325,13 @@ body {
     font-size: 40px;
   }
   
-  .home .top_charts h1{
+  .home .timer h1{
     margin-left: -50px;
     width: 90%;
     text-align: center;
   }
 
-  .home .top_charts iframe {
+  .home .timer iframe {
     width: 100%;
     display: block;
     margin-left: -50px;
