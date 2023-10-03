@@ -291,8 +291,12 @@ body {
 
 #disclaimer p{
   color: rgb(189, 212, 231);
+  font-size: 25px;
 }
 
+#disclaimer #logo {
+  justify-content: center;
+}
 
 /*Tab resizing*/
 @media (max-width: 768px) {
