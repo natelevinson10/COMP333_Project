@@ -93,7 +93,10 @@ body {
   margin-left: 15px;
 }
 
-#nav_item {
+#features-btn,
+#testimonals-btn,
+#about-btn,
+#account-btn{
   color: rgb(105, 17, 69); 
   text-decoration: none;
   font-size: 30px;
