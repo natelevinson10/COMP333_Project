@@ -340,7 +340,7 @@ body {
   }
 }
 
-
+/*Navbar drop down*/
 @media screen and (max-width:1000px) {
     #navbar_items { display: none !important; }
     #more-button  { display: block; visibility: visible; }
