@@ -123,8 +123,7 @@ body {
   border:none;
   background-color: rgb(4, 59, 98);
   color:rgb(233, 175, 204);
-  margin-left:10px;
-  margin-right:10px;
+  margin: 10px 10px;
 }
 
 #sign_in_btn:hover {
@@ -145,7 +144,7 @@ body {
   font-family: 'Lobster Two', cursive;
   font-weight: 800;
   font-size: 50px;
-  margin-bottom: 0px;
+  margin: 0px;
 }
 
 /*Features */
