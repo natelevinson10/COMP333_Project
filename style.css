@@ -281,7 +281,11 @@ body {
 }
 
 /*Disclaimer*/
-
+#disclaimer {
+  background-color: red;
+  padding: 20px;
+  margin-bottom: 0;
+}
 
 /*Tab resizing*/
 @media (max-width: 768px) {
