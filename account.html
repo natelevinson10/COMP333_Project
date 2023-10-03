@@ -11,36 +11,38 @@
     <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- Navigation Bar -->
-<div id="navbar" class="row navbar">
-    <div class="navbar_logo" style= "padding-top:20px;">
-        <p style="margin: 0; height: 60px;"><a href="index.html" style="cursor: pointer;">
-        <img src="public/logo.png" id="logo" alt="lovenotes logo" height="50px;"/>
-        </a></p>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar" class="row navbar">
+        <div class="navbar_logo" style= "padding-top:20px;">
+            <p style="margin: 0; height: 60px;"><a href="index.html" style="cursor: pointer;" aria-label="Return to top of landing page">
+            <img src="images/logo.webp" id="logo" alt="lovenotes logo" style="width: 178px; height: 50px;" loading="lazy"/>
+            </a></p>
+        </div>
+        <ul id="navbar_items">
+            <li><a id="features-btn" href="index.html#features">Features</a></li>
+            <li><a id="testimonals-btn" href="index.html#testimonials">Testimonials</a></li>
+            <li><a id="about-btn" href="index.html#about">The Team</a></li>
+            <li><a id="account-btn" href="account.html">Account</a></li>
+        </ul>
+        <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
+            <i id="more-icon" class="fa-solid fa-list" style="color:white; font-size: 25px;"></i>
+        </button>
+        <ul id="navbar_list">
+            <li><a id="nav_item_list" href="index.html#features">Features</a></li>
+            <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
+            <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
+            <li style="margin-bottom: 10px;"><a id="nav_item_list" href="account.html">Account</a></li>
+        </ul>
     </div>
-    <ul id="navbar_items">
-        <li><a id="nav_item" href="index.html#features">Features</a></li>
-        <li><a id="nav_item" href="index.html#testimonials">Testimonials</a></li>
-        <li><a id="nav_item" href="index.html#about">The Team</a></li>
-        <li><a id="nav_item" href="account.html">Account</a></li>
-    </ul>
-    <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
-        <i id="more-icon" class="fa-solid fa-list" style="color:white; font-size: 25px;"></i>
-    </button>
-    <ul id="navbar_list">
-        <li><a id="nav_item_list" href="index.html#features">Features</a></li>
-        <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
-        <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
-        <li style="margin-bottom: 10px;"><a id="nav_item_list" href="account.html">Account</a></li>
-    </ul>
-</div>
 
-<!-- Home section -->
-<div id="home" class="container">
-    <div class="row home">
-        <div class="left_text" style="margin-left:50px; width:40%">
-            <h1 style="font-size:80px; text-align:center; color: rgb(4, 57, 94);";>Account</h1>
-            <p></p>
+    <!-- Home section -->
+    <div id="home" class="container">
+        <div class="row home">
+            <div class="left_text" style="margin-left:50px; width:40%">
+                <h1 style="font-size:80px; text-align:center; color: rgb(4, 57, 94);";>Account</h1>
+                <p></p>
+            </div>
         </div>
     </div>
-</div>
+</body>

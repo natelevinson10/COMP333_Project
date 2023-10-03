@@ -8,145 +8,145 @@
     <link rel="stylesheet" href="style.css" />
     <script src="landing.js"></script> 
     <link rel="icon" href= "images/music.webp" type="image/x-icon" style="width: 32px; height: 32px;">
-    <script>window.FontAwesomeKitConfig = {"asyncLoading": {"enabled": false}}</script>
-    <script src="https://kit.fontawesome.com/289e976bd2.js" defer></script>
-</head>
+    <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script></head>
 
-<!-- Navigation Bar -->
-<div id="navbar" class="row navbar">
-    <div class="navbar_logo" style= "padding-top:20px;">
-        <p style="margin: 0; height: 60px;"><a href="index.html" style="cursor: pointer;" aria-label="Return to top of landing page">
-        <img src="images/logo.webp" id="logo" alt="lovenotes logo" style="width: 178px; height: 50px;" loading="lazy"/>
-        </a></p>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar" class="row navbar">
+        <div class="navbar_logo" style= "padding-top:20px;">
+            <p style="margin: 0; height: 60px;"><a href="index.html" style="cursor: pointer;" aria-label="Return to top of landing page">
+            <img src="images/logo.webp" id="logo" alt="lovenotes logo" style="width: 178px; height: 50px;" loading="lazy"/>
+            </a></p>
+        </div>
+        <ul id="navbar_items">
+            <li><a id="features-btn" href="index.html#features">Features</a></li>
+            <li><a id="testimonals-btn" href="index.html#testimonials">Testimonials</a></li>
+            <li><a id="about-btn" href="index.html#about">The Team</a></li>
+            <li><a id="account-btn" href="account.html">Account</a></li>
+        </ul>
+        <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
+            <i id="more-icon" class="fa-solid fa-list" style="color:white; font-size: 25px;"></i>
+        </button>
+        <ul id="navbar_list">
+            <li><a id="nav_item_list" href="index.html#features">Features</a></li>
+            <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
+            <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
+            <li style="margin-bottom: 10px;"><a id="nav_item_list" href="account.html">Account</a></li>
+        </ul>
     </div>
-    <ul id="navbar_items">
-        <li><a id="features-btn" href="index.html#features">Features</a></li>
-        <li><a id="testimonals-btn" href="index.html#testimonials">Testimonials</a></li>
-        <li><a id="about-btn" href="index.html#about">The Team</a></li>
-        <li><a id="account-btn" href="account.html">Account</a></li>
-    </ul>
-    <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
-        <i id="more-icon" class="fa-solid fa-list" style="color:white; font-size: 25px;"></i>
-    </button>
-    <ul id="navbar_list">
-        <li><a id="nav_item_list" href="index.html#features">Features</a></li>
-        <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
-        <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
-        <li style="margin-bottom: 10px;"><a id="nav_item_list" href="account.html">Account</a></li>
-    </ul>
-</div>
 
-<!-- Home section -->
-<div id="home" class="container">
-    <div class="row home">
-        <div class="left_text" style="margin-left:50px; width:40%">
-            <h1 style="font-size:80px; text-align:center; color: rgb(4, 57, 94);";>Share your music tastes with the world</h1>
-            <p></p>
-            <div class="sign_in_btns" style="text-align:center;">
-                <button id="sign_up_btn" style="margin: 5px 0px;">Sign up</button>
-                <button id="log_in_btn">Log in</button>
+    <!-- Home section -->
+    <div id="home" class="container">
+        <div class="row home">
+            <div class="left_text" style="margin-left:50px; width:40%">
+                <h1 style="font-size:80px; text-align:center; color: rgb(4, 57, 94);";>Share your music tastes with the world</h1>
+                <p></p>
+                <div class="sign_in_btns" style="text-align:center;">
+                    <button id="sign_up_btn" style="margin: 5px 0px;">Sign up</button>
+                    <button id="log_in_btn">Log in</button>
+                </div>
             </div>
-        </div>
-        <div class="top_charts" style="padding-top: 30px; margin-left: 150px;">
-            <h1 style="font-size: 40px; color: rgb(4, 57, 94); text-align: center;">Top Charts</h1>
-            <iframe id="spotify_iframe" title="spotify_iframe" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbLRQDuF5jeBp?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" async></iframe>
-        </div>
-    </div>
-</div>
-
-<!-- Features section -->
-<div class="container" id="features">
-    <h1 id="header">Features</h1>
-    <div class="row cards">
-        <div class="card">
-            <i class="fa-solid fa-headphones fa-9x" style="color: rgb(4, 57, 94);"></i>
-            <div class="card-info">
-            <h2><b>Add Your Favorite Beats</b></h2>
-            <p>Display your favorite jams on your user profile!</p>
-            </div>
-        </div>
-        <div class="card">
-            <i class="fa-solid fa-heart fa-9x" style="color: rgb(4, 57, 94);"></i>
-            <div class="card-info">
-            <h2><b>Rate Your Tunes</b></h2>
-            <p>Share your music taste by rating your songs!</p>
-            </div>
-        </div>
-        <div class="card">
-            <i class="fa-solid fa-magnifying-glass fa-9x" style="color: rgb(4, 57, 94);"></i>
-            <div class="card-info">
-            <h2><b>Find New Sounds</b></h2>
-            <p>Find users with similar music taste!</p>
-            </div>
-        </div>
-    </div>  
-</div>
-
-<!-- Testimonials Section -->
-<div class="container" id="testimonials">
-    <h1 id="header">Testimonials</h1>
-    <div class="row testimonals">
-        <div id="review_external">
-            <div id="review_internal">
-                <p id="review_text" style="height:40%">"This site helped me discover the song that would go on to be played at my wedding!"</p>
-                <p id="review_text" style="height:20%"> - Waverly Smart,<br>Wesleyan '27</p>
-                <p id="insta_icon"><a name="ref1" href="https://www.instagram.com/waverly_smart/#" target="_blank" aria-label="Visit Waverly's instagram">
-                    <i class="fa-brands fa-instagram fa-3x" style="color: rgb(105, 17, 69);"></i>
-                </a></p>            
-            </div>
-        </div>
-        <div id="review_external">
-            <div id="review_internal">
-                <p id="review_text" style="height:40%">"Mr. Worldwide approves."</p>
-                <p id="review_text" style="height:20%"> - Pitbull,<br>Musician</p>
-                <p id="insta_icon"><a name="ref2" href="https://www.instagram.com/pitbull/#" target="_blank" aria-label="Visit Pitbull's instagram">
-                    <i class="fa-brands fa-instagram fa-3x" style="color: rgb(105, 17, 69);"></i>
-                </a></p>     
-            </div>
-        </div>
-        <div id="review_external">
-            <div id="review_internal">
-                <p id="review_text" style="height:40%">"This website is a national treasure."</p>
-                <p id="review_text" style="height:20%"> - Joe Biden,<br>POTUS</p>
-                <p id="insta_icon"><a name="ref3"  href="https://www.instagram.com/potus/#" target="_blank" aria-label="Visit POTUS' instagram">
-                    <i class="fa-brands fa-instagram fa-3x" style="color: rgb(105, 17, 69);"></i>
-                </a></p>     
+            <div class="top_charts" style="padding-top: 30px; margin-left: 150px;">
+                <h1 style="font-size: 40px; color: rgb(4, 57, 94); text-align: center;">Top Charts</h1>
+                <iframe id="spotify_iframe" title="spotify_iframe" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbLRQDuF5jeBp?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" async></iframe>
             </div>
         </div>
     </div>
-</div>
 
-<!-- About section -->
-<div id ="about" class="container">
-    <h1 id="header">Meet the Team</h1>
-    <div id="about_us" class="row about_us">
-        <div id="about_external">
-            <div id="about_internal">
-                <img id="creator_pic" src="images/bella.webp" id="logo" alt="bella profile" style="height: 200px; width: 200px;" loading="lazy"/>
-                <p id="review_text" style="height:15%; color:rgb(105, 17, 69);">Bella Tassone,<br>Wesleyan '24</p>
-                <p id="description_text">Favorite Genre: Classic Rock<br>Favorite Artist: Eagles<br>Favorite Song: Build Me Up Buttercup</p>
-                <p id="linkedin_icon"><a name="bella_linkedin" href="https://www.linkedin.com/in/isabella-tassone-2b995725a/" target="_blank" aria-label="Visit Bella's LinkedIn">
-                    <i class="fa-brands fa-linkedin fa-3x" style="color: rgb(4, 59, 98);"></i>
-                </a></p>            
+    <!-- Features section -->
+    <div class="container" id="features">
+        <h1 id="header">Features</h1>
+        <div class="row cards">
+            <div class="card">
+                <i class="fa-solid fa-headphones fa-9x" style="color: rgb(4, 57, 94);"></i>
+                <div class="card-info">
+                <h2><b>Add Your Favorite Beats</b></h2>
+                <p>Display your favorite jams on your user profile!</p>
+                </div>
             </div>
-        </div>
-        <div id="about_external">
-            <div id="about_internal">
-                <img id="creator_pic" src="images/nate.webp" id="logo" alt="nate profile" style="height: 200px; width: 200px;" loading="lazy"/>
-                <p id="review_text" style="height:15%; color:rgb(105, 17, 69);">Nate Levinson,<br>Wesleyan '25</p>
-                <p id="description_text">Favorite Genre: Rock<br>Favorite Artist: Smashing Pumpkins<br>Favorite Song: There She Goes</p>
-                <p id="linkedin_icon"><a name="nate_linkedin" href="https://www.linkedin.com/in/nathaniel-levinson-889282252/" target="_blank" aria-label="Visit Nate's LinkedIn">
-                    <i class="fa-brands fa-linkedin fa-3x" style="color: rgb(4, 59, 98);"></i>
-                </a></p>            
+            <div class="card">
+                <i class="fa-solid fa-heart fa-9x" style="color: rgb(4, 57, 94);"></i>
+                <div class="card-info">
+                <h2><b>Rate Your Tunes</b></h2>
+                <p>Share your music taste by rating your songs!</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-magnifying-glass fa-9x" style="color: rgb(4, 57, 94);"></i>
+                <div class="card-info">
+                <h2><b>Find New Sounds</b></h2>
+                <p>Find users with similar music taste!</p>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="container" id="testimonials">
+        <h1 id="header">Testimonials</h1>
+        <div class="row testimonals">
+            <div id="review_external">
+                <div id="review_internal">
+                    <p id="review_text" style="height:40%">"This site helped me discover the song that would go on to be played at my wedding!"</p>
+                    <p id="review_text" style="height:20%"> - Waverly Smart,<br>Wesleyan '27</p>
+                    <p id="insta_icon"><a name="ref1" href="https://www.instagram.com/waverly_smart/#" target="_blank" aria-label="Visit Waverly's instagram">
+                        <i class="fa-brands fa-instagram fa-3x" style="color: rgb(105, 17, 69);"></i>
+                    </a></p>            
+                </div>
+            </div>
+            <div id="review_external">
+                <div id="review_internal">
+                    <p id="review_text" style="height:40%">"Mr. Worldwide approves."</p>
+                    <p id="review_text" style="height:20%"> - Pitbull,<br>Musician</p>
+                    <p id="insta_icon"><a name="ref2" href="https://www.instagram.com/pitbull/#" target="_blank" aria-label="Visit Pitbull's instagram">
+                        <i class="fa-brands fa-instagram fa-3x" style="color: rgb(105, 17, 69);"></i>
+                    </a></p>     
+                </div>
+            </div>
+            <div id="review_external">
+                <div id="review_internal">
+                    <p id="review_text" style="height:40%">"This website is a national treasure."</p>
+                    <p id="review_text" style="height:20%"> - Joe Biden,<br>POTUS</p>
+                    <p id="insta_icon"><a name="ref3"  href="https://www.instagram.com/potus/#" target="_blank" aria-label="Visit POTUS' instagram">
+                        <i class="fa-brands fa-instagram fa-3x" style="color: rgb(105, 17, 69);"></i>
+                    </a></p>     
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Disclaimer section -->
-<div id="disclaimer" class="container">
-    <div class="row-disclaimer">
-        <p>Disclaimer: This site was designed and published as part of the COMP 333 Software Engineering class at Wesleyan University. This is a training exercise.</p>
-        <img src="images/logo.webp" id="logo" alt="lovenotes logo" height="30px;"/>
+    <!-- About section -->
+    <div id ="about" class="container">
+        <h1 id="header">Meet the Team</h1>
+        <div id="about_us" class="row about_us">
+            <div id="about_external">
+                <div id="about_internal">
+                    <img id="creator_pic" src="images/bella.webp" id="logo" alt="bella profile" style="height: 200px; width: 200px;" loading="lazy"/>
+                    <p id="review_text" style="height:15%; color:rgb(105, 17, 69);">Bella Tassone,<br>Wesleyan '24</p>
+                    <p id="description_text">Favorite Genre: Classic Rock<br>Favorite Artist: Eagles<br>Favorite Song: Build Me Up Buttercup</p>
+                    <p id="linkedin_icon"><a name="bella_linkedin" href="https://www.linkedin.com/in/isabella-tassone-2b995725a/" target="_blank" aria-label="Visit Bella's LinkedIn">
+                        <i class="fa-brands fa-linkedin fa-3x" style="color: rgb(4, 59, 98);"></i>
+                    </a></p>            
+                </div>
+            </div>
+            <div id="about_external">
+                <div id="about_internal">
+                    <img id="creator_pic" src="images/nate.webp" id="logo" alt="nate profile" style="height: 200px; width: 200px;" loading="lazy"/>
+                    <p id="review_text" style="height:15%; color:rgb(105, 17, 69);">Nate Levinson,<br>Wesleyan '25</p>
+                    <p id="description_text">Favorite Genre: Rock<br>Favorite Artist: Smashing Pumpkins<br>Favorite Song: There She Goes</p>
+                    <p id="linkedin_icon"><a name="nate_linkedin" href="https://www.linkedin.com/in/nathaniel-levinson-889282252/" target="_blank" aria-label="Visit Nate's LinkedIn">
+                        <i class="fa-brands fa-linkedin fa-3x" style="color: rgb(4, 59, 98);"></i>
+                    </a></p>            
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- Disclaimer section -->
+    <div id="disclaimer" class="container">
+        <div class="row-disclaimer">
+            <p>Disclaimer: This site was designed and published as part of the COMP 333 Software Engineering class at Wesleyan University. This is a training exercise.</p>
+            <img src="images/logo.webp" id="logo" alt="lovenotes logo" height="30px;"/>
+        </div>
+    </div>
+</body>
