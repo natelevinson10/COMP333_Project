@@ -207,7 +207,6 @@ body {
 }
 
 #about_external {
-  min-width: 375px;
   width:436px;
   height:560px;
   margin: 10px 100px;
@@ -272,6 +271,7 @@ body {
     display: block;
     margin-left: -50px;
   }
+  
 }
 
 #more-button {
