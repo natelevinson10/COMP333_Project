@@ -76,7 +76,7 @@ body {
   text-align: right;
   display: inline-block;
   line-height: 40px;
-  padding-top:40px;
+  padding-top:20px;
 }
 
 .navbar li {
@@ -299,18 +299,16 @@ body {
   }
 }
 
-#more-icon {
+#more-button {
   display: none;
   visibility: hidden;
   line-height: 40px;
-}
-
-#more-button {
   border: none;
   background-color: transparent;
-  padding-top: 45px;
+  padding-top: 25px;
   padding-right: 50px;
-  height: 90px;
+  height: 40px;
+  cursor: pointer;
 }
 
 #navbar_list {
@@ -331,23 +329,26 @@ body {
 }
 
 #nav_item_list {
-  background-color: rgb(233, 175, 204);
-  color: rgb(105, 17, 69); 
-  border-radius: 15px;
+  background-color: transparent;
   text-decoration: none;
   font-size: 30px;
-  padding: 2.5px;
+  border-radius: 15px;
+  color: rgb(233, 175, 204);
+  margin:5px;
+  width:500px;
 }
 
 #nav_item_list:hover {
-  background-color:rgb(224, 143, 184);
+  color:rgb(224, 143, 184);
 }
 
 @media screen and (max-width:1000px) {
     #navbar_items { display: none !important; }
-    #more-icon  { display: block; visibility: visible; }
+    #more-button  { display: block; visibility: visible; }
 }
 
 @media screen and (min-width:1000px) {
   #navbar_list { display: none !important; }
+  #more-button  { display: none !important; }
+
 }
