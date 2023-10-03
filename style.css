@@ -282,10 +282,16 @@ body {
 
 /*Disclaimer*/
 #disclaimer {
-  background-color: red;
+  background-color: rgb(4, 59, 98);
   padding: 20px;
-  margin-bottom: 0;
+  margin-left: -8px;
+  margin-bottom: -80px;
 }
+
+#disclaimer p{
+  color: rgb(189, 212, 231);
+}
+
 
 /*Tab resizing*/
 @media (max-width: 768px) {
