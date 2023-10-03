@@ -19,7 +19,7 @@ h1 {
   font-family: 'Lobster Two', cursive;
 }
 
-h4 {
+h2 {
   font-family: 'Lobster Two', cursive;
   font-size: 25px;
   text-align: center;
@@ -93,7 +93,10 @@ body {
   margin-left: 15px;
 }
 
-#nav_item {
+#features-btn,
+#testimonals-btn,
+#about-btn,
+#account-btn{
   color: rgb(105, 17, 69); 
   text-decoration: none;
   font-size: 30px;
@@ -154,7 +157,8 @@ body {
   margin-left: -15px;
 }
 
-#sign_in_btn {
+#sign_up_btn,
+#log_in_btn {
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 70px;
@@ -168,7 +172,8 @@ body {
   margin: 10px 10px;
 }
 
-#sign_in_btn:hover {
+#sign_up_btn:hover,
+#log_in_btn:hover{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
 }
