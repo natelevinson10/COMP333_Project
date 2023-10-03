@@ -102,6 +102,48 @@ body {
 .navbar li:hover {
   background-color:rgb(224, 143, 184);
 }
+#more-button {
+  display: none;
+  visibility: hidden;
+  line-height: 40px;
+  border: none;
+  background-color: transparent;
+  padding-top: 25px;
+  padding-right: 50px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#navbar_list {
+  display:none;
+  list-style: none;
+  width: 75%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  flex-direction: column;
+  line-height: 40px;
+}
+
+#navbar_list li {
+  line-height: 40px;
+  font-family: 'Lobster Two', cursive;
+  background-color: transparent;
+}
+
+#nav_item_list {
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 30px;
+  border-radius: 15px;
+  color: rgb(233, 175, 204);
+  margin:5px;
+  width:500px;
+}
+
+#nav_item_list:hover {
+  color:rgb(224, 143, 184);
+}
 
 /*Home (landing) */
 .row {
@@ -189,6 +231,7 @@ body {
   height: 360px;
   width: 396px;
   margin: 20px 20px;
+  margin: auto;
 }
 
 #review_text {
@@ -237,6 +280,23 @@ body {
   height: 170px;
 }
 
+/*Disclaimer*/
+#disclaimer {
+  background-color: rgb(4, 59, 98);
+  padding: 20px;
+  margin-left: -8px;
+  margin-bottom: -80px;
+}
+
+#disclaimer p{
+  color: rgb(189, 212, 231);
+  font-size: 25px;
+}
+
+#disclaimer #logo {
+  justify-content: center;
+}
+
 /*Tab resizing*/
 @media (max-width: 768px) {
   
@@ -274,49 +334,7 @@ body {
   
 }
 
-#more-button {
-  display: none;
-  visibility: hidden;
-  line-height: 40px;
-  border: none;
-  background-color: transparent;
-  padding-top: 25px;
-  padding-right: 50px;
-  height: 40px;
-  cursor: pointer;
-}
-
-#navbar_list {
-  display:none;
-  list-style: none;
-  width: 75%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-  flex-direction: column;
-  line-height: 40px;
-}
-
-#navbar_list li {
-  line-height: 40px;
-  font-family: 'Lobster Two', cursive;
-  background-color: transparent;
-}
-
-#nav_item_list {
-  background-color: transparent;
-  text-decoration: none;
-  font-size: 30px;
-  border-radius: 15px;
-  color: rgb(233, 175, 204);
-  margin:5px;
-  width:500px;
-}
-
-#nav_item_list:hover {
-  color:rgb(224, 143, 184);
-}
-
+/*Navbar drop down*/
 @media screen and (max-width:1000px) {
     #navbar_items { display: none !important; }
     #more-button  { display: block; visibility: visible; }
