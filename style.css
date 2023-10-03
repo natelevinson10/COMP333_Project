@@ -154,7 +154,8 @@ body {
   margin-left: -15px;
 }
 
-#sign_in_btn {
+#sign_up_btn,
+#log_in_btn {
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 70px;
@@ -168,7 +169,8 @@ body {
   margin: 10px 10px;
 }
 
-#sign_in_btn:hover {
+#sign_up_btn:hover,
+#log_in_btn:hover{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
 }
