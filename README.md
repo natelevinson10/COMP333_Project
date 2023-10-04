@@ -14,3 +14,5 @@ Currently, LoveNotes is not hosted on the internet. Thus, the code will have to 
 
 Developers🧑‍🔬:\
 Nate Levinson and Bella Tassone
+
+HW1 participation📝: 50/50 split
