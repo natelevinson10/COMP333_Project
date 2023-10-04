@@ -12,7 +12,7 @@ Style.css: CSS code used to style the landing page (index.html), including the b
 **NOTE**: The sign-up and login buttons do not currently have any functionality (to be developed as project progresses).
 
 How To Run💻:\
-Currently, LoveNotes is not hosted on the internet. Thus, the code will have to be run locally in browser for the time being.
+Currently, LoveNotes is not hosted on the internet. Thus, the code will have to be run locally in browser for the time being. This can be accomplished by going to the **Deployments** page and visiting our site from there, or alternatively just follow [this link](https://natelevinson10.github.io/COMP333_Project/).
 
 Developers🧑‍🔬:\
 Nate Levinson and Bella Tassone
