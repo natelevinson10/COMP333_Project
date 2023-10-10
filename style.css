@@ -52,16 +52,17 @@ body {
   text-align: right;
 }
 
-#user_text,
-#pass_text,
-#sign_in_text {
+.user_text,
+.pass_text,
+.sign_in_text {
   font-family: 'Lobster Two', cursive;
   color: rgb(4, 57, 94);
   font-size: 25px;
+  margin-right: 10px;
 }
 
-#user,
-#pass {
+.user,
+.pass {
   font-size: 20px;
   height: 25px;
 }

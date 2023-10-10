@@ -46,24 +46,25 @@
                 <h1 style="font-size:50px; text-align:center; color: rgb(4, 57, 94);">Sign up</h1>
                 <form name="form" action="verifyLogin.php" method="POST">
                 <div class="login_info">
-                    <label id="user_text"> Username: </label>
-                    <input type="text" id="user" name="userid"/>
+                    <label class="user_text"> Username* </label>
+                    <input required type="text" class="user" name="userid"/>
                 </div>
                 <div class="login_info">
-                    <label id="pass_text"> Password: </label>
-                    <input type="password" id="pass" name="reg_password_1"/>
+                    <label class="pass_text"> Password* </label>
+                    <input required type="password" class="pass" name="reg_password_1"/>
                 </div>
                 <div class="login_info">
-                    <label id="pass_text"> Reenter Password: </label>
-                    <input type="password" id="pass" name="reg_password_2"/>
+                    <label class="pass_text"> Reenter Password* </label>
+                    <input required type="password" class="pass" name="reg_password_2"/>
                 </div>
                 <div style="text-align: center;">
-                    <input type="submit" id="log_in_btn" value="Sign up" style="padding:10px; font-size: 22px;"/>
+                    <input type="submit" id="log_in_btn" value="Sign up" style="padding:10px 30px; font-size: 22px;"/>
                 </div>
-                <div id="sign_in_text" style="text-align: center; display: inline block; font-size: 20px;">
+                <div class="sign_in_text" style="text-align: center; font-size: 20px;">
                     <span>Have an account?</span>
                     <a href="login.html">Log in here.</a>
                 </div>
+                <p class="sign_in_text" style="text-align: center; font-size: 17px;">*Required</p>
                 </form>
             </div>
         </div>
