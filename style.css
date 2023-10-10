@@ -47,6 +47,20 @@ body {
   margin: 0;
 }
 
+#user_text,
+#pass_text,
+#sign_in_text {
+  font-family: 'Lobster Two', cursive;
+  color: rgb(4, 57, 94);
+  font-size: 25px;
+}
+
+#user,
+#pass {
+  font-size: 20px;
+  height: 25px;
+}
+
 /*Navbar*/
 .navbar {
   background-color: rgb(4, 59, 98);
