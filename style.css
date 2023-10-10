@@ -47,16 +47,22 @@ body {
   margin: 0;
 }
 
-#user_text,
-#pass_text,
-#sign_in_text {
+.login_info {
+  margin: 10px;
+  text-align: right;
+}
+
+.user_text,
+.pass_text,
+.sign_in_text {
   font-family: 'Lobster Two', cursive;
   color: rgb(4, 57, 94);
   font-size: 25px;
+  margin-right: 10px;
 }
 
-#user,
-#pass {
+.user,
+.pass {
   font-size: 20px;
   height: 25px;
 }
@@ -110,7 +116,7 @@ body {
 #features-btn,
 #testimonals-btn,
 #about-btn,
-#account-btn{
+#login-btn{
   color: rgb(105, 17, 69); 
   text-decoration: none;
   font-size: 30px;
