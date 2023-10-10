@@ -47,6 +47,11 @@ body {
   margin: 0;
 }
 
+.login_info {
+  margin: 10px;
+  text-align: right;
+}
+
 #user_text,
 #pass_text,
 #sign_in_text {
@@ -110,7 +115,7 @@ body {
 #features-btn,
 #testimonals-btn,
 #about-btn,
-#account-btn{
+#login-btn{
   color: rgb(105, 17, 69); 
   text-decoration: none;
   font-size: 30px;
