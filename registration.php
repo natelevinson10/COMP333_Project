@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +56,14 @@
                 if(!(mysqli_query($conn, $sql_query2))){
                     $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
                 }
+
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = $user;
+                $_SESSION["password"] = $pass;
+
+                header('Location: index.html');
+
+                // In reality, if they give a correct user and password they should be redirected to the ratings page
             }
 
         }
