@@ -15,6 +15,32 @@
 </head>
 
 <body>
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "music_db";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    if(isset($_REQUEST["submit"])){
+      $out_value = "";
+      $s_username = $_REQUEST['userid'];
+      $s_password = $_REQUEST['login_password_1'];
+
+        $sql_query = "SELECT * FROM users WHERE username = ('$s_username') AND password = ('$s_password')";
+        $result = mysqli_query($conn, $sql_query);
+        $row = mysqli_fetch_assoc($result);
+        if(!(is_null($row))) {
+            $out_value = "yay";
+        }
+        else {
+            $out_value = "bad info!";
+        }
+    }
+    $conn->close();
+  ?>
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -44,7 +70,7 @@
         <div class="row home">
             <div id="form">
                 <h1 style="font-size:50px; text-align:center; color: rgb(4, 57, 94);">Login</h1>
-                <form name="form" action="verifyLogin.php" method="POST">
+                <form name="form" action="" method="GET">
                 <div class = "login_info">
                     <label class="user_text"> Username* </label>
                     <input required type="text" class="user" name="userid"/>
@@ -54,8 +80,13 @@
                     <input required type="password" class="pass" name="login_password_1"/>
                 </div>
                 <div style="text-align: center;">
-                    <input type="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>
+                    <input type="submit" name="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>
                 </div>
+                <p><?php 
+                    if(!empty($out_value)){
+                        echo $out_value;
+                    }
+                ?></p>
                 <div class="sign_in_text" style="text-align: center; font-size: 20px;">
                     <span>Don't have an account?</span>
                     <a href="registration.html">Sign up here.</a>
