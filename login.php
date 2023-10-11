@@ -96,7 +96,7 @@
                 </div>
                 <div class="sign_in_text" style="text-align: center; font-size: 20px;">
                     <span>Don't have an account?</span>
-                    <a href="registration.html">Sign up here.</a>
+                    <a href="registration.php">Sign up here.</a>
                 </div>
                 <p class="sign_in_text" style="text-align: center; font-size: 17px;">*Required</p>
                 </form>
