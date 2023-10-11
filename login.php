@@ -26,10 +26,10 @@
         }
         if(isset($_REQUEST["submit"])){
         $out_value = "";
-        $s_username = $_REQUEST['userid'];
-        $s_password = $_REQUEST['login_password_1'];
+        $user = $_REQUEST['userid'];
+        $pass = $_REQUEST['login_password_1'];
 
-            $sql_query = "SELECT * FROM users WHERE username = ('$s_username') AND password = ('$s_password')";
+            $sql_query = "SELECT * FROM users WHERE username = ('$user') AND password = ('$pass')";
             $result = mysqli_query($conn, $sql_query);
             $row = mysqli_fetch_assoc($result);
             if(!(is_null($row))) {
@@ -37,8 +37,8 @@
                  * Let's not worry about session cookies for now
                 session_start();
                 $_SESSION["loggedin"] = true;
-                $_SESSION["username"] = $s_username;
-                $_SESSION["password"] = $s_password;
+                $_SESSION["username"] = $user;
+                $_SESSION["password"] = $pass;
                 */
                 header('Location: index.html');
 
