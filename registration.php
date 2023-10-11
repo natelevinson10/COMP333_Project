@@ -39,7 +39,10 @@
             $row = mysqli_fetch_assoc($result);
 
             if(!(is_null($row))) {
-                $out_value = "Username is taken!";
+                $out_value = "Username is taken!\n Please pick a different username.";
+            }
+            elseif (strlen($password_1)<10) {
+                $out_value = "Password must be at least 10 characters long!";
             }
             elseif ($password_1 != $password_2) {
                 $out_value = "Passwords must match!";

@@ -37,13 +37,11 @@ session_start();
             $result = mysqli_query($conn, $sql_query);
             $row = mysqli_fetch_assoc($result);
             if(!(is_null($row))) {
-                /** 
-                 * Let's not worry about session cookies for now
-                session_start();
+
                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $user;
                 $_SESSION["password"] = $pass;
-                */
+
                 header('Location: index.html');
 
                 // In reality, if they give a correct user and password they should be redirected to the ratings page
