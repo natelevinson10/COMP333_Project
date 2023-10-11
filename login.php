@@ -33,10 +33,13 @@
         $result = mysqli_query($conn, $sql_query);
         $row = mysqli_fetch_assoc($result);
         if(!(is_null($row))) {
+            /** 
+             * Let's not worry about session cookies for now
             session_start();
             $_SESSION["loggedin"] = true;
             $_SESSION["username"] = $s_username;
             $_SESSION["password"] = $s_password;
+            */
             header('Location: index.html');
 
 
@@ -60,7 +63,6 @@
             <li><a id="features-btn" href="index.html#features">Features</a></li>
             <li><a id="testimonals-btn" href="index.html#testimonials">Testimonials</a></li>
             <li><a id="about-btn" href="index.html#about">The Team</a></li>
-            <li><a id="login-btn" href="login.html">Login</a></li>
         </ul>
         <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
             <i id="more-icon" class="fa-solid fa-list" style="color:rgb(233, 175, 204); font-size: 25px;"></i>
@@ -69,7 +71,6 @@
             <li><a id="nav_item_list" href="index.html#features">Features</a></li>
             <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
             <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
-            <li style="margin-bottom: 10px;"><a id="nav_item_list" href="login.html">Login</a></li>
         </ul>
     </div>
 
@@ -78,7 +79,7 @@
         <div class="row home">
             <div id="form">
                 <h1 style="font-size:50px; text-align:center; color: rgb(4, 57, 94);">Login</h1>
-                <form name="form" action="" method="GET">
+                <form name="form" action="" method="POST">
                 <div class = "login_info">
                     <label class="user_text"> Username* </label>
                     <input required type="text" class="user" name="userid"/>
