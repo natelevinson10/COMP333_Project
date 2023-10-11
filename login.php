@@ -16,42 +16,40 @@
 
 <body>
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "music_db";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-    if(isset($_REQUEST["submit"])){
-      $out_value = "";
-      $s_username = $_REQUEST['userid'];
-      $s_password = $_REQUEST['login_password_1'];
-
-        $sql_query = "SELECT * FROM users WHERE username = ('$s_username') AND password = ('$s_password')";
-        $result = mysqli_query($conn, $sql_query);
-        $row = mysqli_fetch_assoc($result);
-        if(!(is_null($row))) {
-            /** 
-             * Let's not worry about session cookies for now
-            session_start();
-            $_SESSION["loggedin"] = true;
-            $_SESSION["username"] = $s_username;
-            $_SESSION["password"] = $s_password;
-            */
-            header('Location: index.html');
-
-
-
-            // In reality, if they give a correct user and password they should be redirected to the ratings page
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "music_db";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
         }
-        else {
-            $out_value = "Your username or password was incorrect!";
+        if(isset($_REQUEST["submit"])){
+        $out_value = "";
+        $s_username = $_REQUEST['userid'];
+        $s_password = $_REQUEST['login_password_1'];
+
+            $sql_query = "SELECT * FROM users WHERE username = ('$s_username') AND password = ('$s_password')";
+            $result = mysqli_query($conn, $sql_query);
+            $row = mysqli_fetch_assoc($result);
+            if(!(is_null($row))) {
+                /** 
+                 * Let's not worry about session cookies for now
+                session_start();
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = $s_username;
+                $_SESSION["password"] = $s_password;
+                */
+                header('Location: index.html');
+
+                // In reality, if they give a correct user and password they should be redirected to the ratings page
+            }
+            else {
+                $out_value = "Your username or password was incorrect!";
+            }
         }
-    }
-    $conn->close();
-  ?>
+        $conn->close();
+    ?>
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -89,9 +87,9 @@
                     <input required type="password" class="pass" name="login_password_1"/>
                 </div>
                 <p class="sign_in_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);"><?php 
-                    if(!empty($out_value)){
-                        echo $out_value;
-                    }
+                        if(!empty($out_value)){
+                            echo $out_value;
+                        }
                 ?></p>
                 <div style="text-align: center;">
                     <input type="submit" name="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>

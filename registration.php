@@ -15,6 +15,47 @@
 </head>
 
 <body>
+    <?php
+        //error_reporting(E_ALL);
+        //ini_set('display_errors', '1');
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "music_db";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+
+        if(isset($_REQUEST["submit"])){
+            $out_value = "";
+            $user =  $_POST['userid'];
+            $password_1 = $_POST['reg_password_1'];
+            $password_2 =  $_POST['reg_password_2'];
+
+            $sql_query1 = "SELECT * FROM users WHERE username = ('$user')";
+            $result = mysqli_query($conn, $sql_query1);
+            $row = mysqli_fetch_assoc($result);
+
+            if(!(is_null($row))) {
+                $out_value = "Username is taken!";
+            }
+            elseif ($password_1 != $password_2) {
+                $out_value = "Passwords must match!";
+            }
+            else {
+                $sql_query2 = "INSERT INTO users (username, password) VALUES ('$user', '$password_1')";
+                if(!(mysqli_query($conn, $sql_query2))){
+                    $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
+                }
+            }
+
+        }
+        // Close connection
+        $conn->close();
+    ?>
+
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -44,7 +85,7 @@
         <div class="row home">
             <div id="form">
                 <h1 style="font-size:50px; text-align:center; color: rgb(4, 57, 94);">Sign up</h1>
-                <form name="form" action="verifyLogin.php" method="POST">
+                <form name="form" method="POST" action="">
                 <div class="login_info">
                     <label class="user_text"> Username* </label>
                     <input required type="text" class="user" name="userid"/>
@@ -57,8 +98,13 @@
                     <label class="pass_text"> Reenter Password* </label>
                     <input required type="password" class="pass" name="reg_password_2"/>
                 </div>
+                <p class="sign_in_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);"><?php 
+                    if(!empty($out_value)){
+                        echo $out_value;
+                    }
+                ?></p>
                 <div style="text-align: center;">
-                    <input type="submit" id="log_in_btn" value="Sign up" style="padding:10px 30px; font-size: 22px;"/>
+                    <input name="submit" type="submit" id="log_in_btn" value="Sign up" style="padding:10px 30px; font-size: 22px;"/>
                 </div>
                 <div class="sign_in_text" style="text-align: center; font-size: 20px;">
                     <span>Have an account?</span>
