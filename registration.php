@@ -39,7 +39,7 @@
             $row = mysqli_fetch_assoc($result);
 
             if(!(is_null($row))) {
-                $out_value = "Username is taken!\n Please pick a different username.";
+                $out_value = "Username is taken! Please pick a different username.";
             }
             elseif (strlen($password_1)<10) {
                 $out_value = "Password must be at least 10 characters long!";
@@ -79,7 +79,6 @@
             <li><a id="nav_item_list" href="index.html#features">Features</a></li>
             <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
             <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
-            <li style="margin-bottom: 10px;"><a id="nav_item_list" href="login.php">Login</a></li>
         </ul>
     </div>
 
