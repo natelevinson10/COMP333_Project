@@ -33,10 +33,18 @@
         $result = mysqli_query($conn, $sql_query);
         $row = mysqli_fetch_assoc($result);
         if(!(is_null($row))) {
-            $out_value = "yay";
+            session_start();
+            $_SESSION["loggedin"] = true;
+            $_SESSION["username"] = $s_username;
+            $_SESSION["password"] = $s_password;
+            header('Location: index.html');
+
+
+
+            // In reality, if they give a correct user and password they should be redirected to the ratings page
         }
         else {
-            $out_value = "bad info!";
+            $out_value = "Your username or password was incorrect!";
         }
     }
     $conn->close();
@@ -79,14 +87,14 @@
                     <label class="pass_text"> Password* </label>
                     <input required type="password" class="pass" name="login_password_1"/>
                 </div>
-                <div style="text-align: center;">
-                    <input type="submit" name="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>
-                </div>
-                <p><?php 
+                <p class="sign_in_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);"><?php 
                     if(!empty($out_value)){
                         echo $out_value;
                     }
                 ?></p>
+                <div style="text-align: center;">
+                    <input type="submit" name="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>
+                </div>
                 <div class="sign_in_text" style="text-align: center; font-size: 20px;">
                     <span>Don't have an account?</span>
                     <a href="registration.html">Sign up here.</a>
