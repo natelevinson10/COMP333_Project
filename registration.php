@@ -70,7 +70,6 @@
             <li><a id="features-btn" href="index.html#features">Features</a></li>
             <li><a id="testimonals-btn" href="index.html#testimonials">Testimonials</a></li>
             <li><a id="about-btn" href="index.html#about">The Team</a></li>
-            <li><a id="login-btn" href="login.php">Login</a></li>
         </ul>
         <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
             <i id="more-icon" class="fa-solid fa-list" style="color:rgb(233, 175, 204); font-size: 25px;"></i>
