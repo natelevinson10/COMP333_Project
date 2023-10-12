@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +19,39 @@
 </head>
 
 <body>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "music_db";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+        if(isset($_REQUEST["submit"])){
+        $out_value = "";
+        $user = $_REQUEST['userid'];
+        $pass = $_REQUEST['login_password_1'];
+
+            $sql_query = "SELECT * FROM users WHERE username = ('$user') AND password = ('$pass')";
+            $result = mysqli_query($conn, $sql_query);
+            $row = mysqli_fetch_assoc($result);
+            if(!(is_null($row))) {
+
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = $user;
+                $_SESSION["password"] = $pass;
+
+                header('Location: index.html');
+
+                // In reality, if they give a correct user and password they should be redirected to the ratings page
+            }
+            else {
+                $out_value = "Your username or password was incorrect!";
+            }
+        }
+        $conn->close();
+    ?>
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -26,7 +63,6 @@
             <li><a id="features-btn" href="index.html#features">Features</a></li>
             <li><a id="testimonals-btn" href="index.html#testimonials">Testimonials</a></li>
             <li><a id="about-btn" href="index.html#about">The Team</a></li>
-            <li><a id="login-btn" href="login.html">Login</a></li>
         </ul>
         <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
             <i id="more-icon" class="fa-solid fa-list" style="color:rgb(233, 175, 204); font-size: 25px;"></i>
@@ -35,7 +71,6 @@
             <li><a id="nav_item_list" href="index.html#features">Features</a></li>
             <li><a id="nav_item_list" href="index.html#testimonials">Testimonials</a></li>
             <li><a id="nav_item_list" href="index.html#about">The Team</a></li>
-            <li style="margin-bottom: 10px;"><a id="nav_item_list" href="login.html">Login</a></li>
         </ul>
     </div>
 
@@ -44,7 +79,7 @@
         <div class="row home">
             <div id="form">
                 <h1 style="font-size:50px; text-align:center; color: rgb(4, 57, 94);">Login</h1>
-                <form name="form" action="verifyLogin.php" method="POST">
+                <form name="form" action="" method="POST">
                 <div class = "login_info">
                     <label class="user_text"> Username* </label>
                     <input required type="text" class="user" name="userid"/>
@@ -53,12 +88,17 @@
                     <label class="pass_text"> Password* </label>
                     <input required type="password" class="pass" name="login_password_1"/>
                 </div>
+                <p class="sign_in_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);"><?php 
+                        if(!empty($out_value)){
+                            echo $out_value;
+                        }
+                ?></p>
                 <div style="text-align: center;">
-                    <input type="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>
+                    <input type="submit" name="submit" id="log_in_btn" value="Login" style="padding:10px 30px; font-size: 22px;"/>
                 </div>
                 <div class="sign_in_text" style="text-align: center; font-size: 20px;">
                     <span>Don't have an account?</span>
-                    <a href="registration.html">Sign up here.</a>
+                    <a href="registration.php">Sign up here.</a>
                 </div>
                 <p class="sign_in_text" style="text-align: center; font-size: 17px;">*Required</p>
                 </form>
