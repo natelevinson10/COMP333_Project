@@ -20,6 +20,8 @@ session_start();
 
 <body>
     <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -29,14 +31,17 @@ session_start();
         die("Connection failed: " . $conn->connect_error);
         }
         if(isset($_REQUEST["submit"])){
-        $out_value = "";
-        $user = $_REQUEST['userid'];
-        $pass = $_REQUEST['login_password_1'];
+            $out_value = "";
+            $user = $_REQUEST['userid'];
+            $pass = $_REQUEST['login_password_1'];
 
-            $sql_query = "SELECT * FROM users WHERE username = ('$user') AND password = ('$pass')";
-            $result = mysqli_query($conn, $sql_query);
-            $row = mysqli_fetch_assoc($result);
-            if(!(is_null($row))) {
+            $sql_query = "SELECT * FROM users WHERE username = ? AND password = ? ";
+            $stmt = mysqli_prepare($conn, $sql_query);
+            mysqli_stmt_bind_param($stmt, "ss", $user, $pass);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $num = mysqli_num_rows($result);
+            if ($num > 0) {
 
                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $user;
