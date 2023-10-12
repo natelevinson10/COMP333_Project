@@ -47,6 +47,7 @@ session_start();
             //check if a matching username exists
             if ($num > 0) {
                 //if yes, retrieve stored hashed password
+                //this works because there should only ever be one row since usernames are unique
                 $row = mysqli_fetch_assoc($result);
                 $hashed_pass = $row["password"];
 
