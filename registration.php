@@ -37,6 +37,8 @@ session_start();
             $user =  $_POST['userid'];
             $password_1 = $_POST['reg_password_1'];
             $password_2 =  $_POST['reg_password_2'];
+            $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
+
 
             $sql_query1 = "SELECT * FROM users WHERE username = ('$user')";
             $result = mysqli_query($conn, $sql_query1);
@@ -52,14 +54,14 @@ session_start();
                 $out_value = "Passwords must match!";
             }
             else {
-                $sql_query2 = "INSERT INTO users (username, password) VALUES ('$user', '$password_1')";
+                $sql_query2 = "INSERT INTO users (username, password) VALUES ('$user', '$hashed_password')";
                 if(!(mysqli_query($conn, $sql_query2))){
                     $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
                 }
 
                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $user;
-                $_SESSION["password"] = $pass;
+                $_SESSION["password"] = $hashed_password;
 
                 header('Location: index.html');
 

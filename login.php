@@ -20,6 +20,9 @@ session_start();
 
 <body>
     <?php
+        //display errors (for debugging)
+        //error_reporting(E_ALL);
+        //ini_set('display_errors', '1');
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -29,27 +32,41 @@ session_start();
         die("Connection failed: " . $conn->connect_error);
         }
         if(isset($_REQUEST["submit"])){
-        $out_value = "";
-        $user = $_REQUEST['userid'];
-        $pass = $_REQUEST['login_password_1'];
+            $out_value = "";
+            $user = $_REQUEST['userid'];
+            $pass = $_REQUEST['login_password_1'];
 
-            $sql_query = "SELECT * FROM users WHERE username = ('$user') AND password = ('$pass')";
-            $result = mysqli_query($conn, $sql_query);
-            $row = mysqli_fetch_assoc($result);
-            if(!(is_null($row))) {
+            //prepared statement
+            $sql_query = "SELECT password FROM users WHERE username = ?";
+            $stmt = mysqli_prepare($conn, $sql_query);
+            mysqli_stmt_bind_param($stmt, "s", $user);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $num = mysqli_num_rows($result);
 
-                $_SESSION["loggedin"] = true;
-                $_SESSION["username"] = $user;
-                $_SESSION["password"] = $pass;
+            //check if a matching username exists
+            if ($num > 0) {
+                //if yes, retrieve stored hashed password
+                //this works because there should only ever be one row since usernames are unique
+                $row = mysqli_fetch_assoc($result);
+                $hashed_pass = $row["password"];
 
-                header('Location: index.html');
-
-                // In reality, if they give a correct user and password they should be redirected to the ratings page
+                //check if the user-provided password matches the stored hashed password
+                $password_match = password_verify($pass, $hashed_pass);
+                if ($password_match) {
+                    //success!!
+                    //set session variables
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["username"] = $user;
+                    $_SESSION["password"] = $hashed_pass;
+                    //redirect (will eventually be ratings page)
+                    header('Location: index.html');
+                }
             }
-            else {
-                $out_value = "Your username or password was incorrect!";
-            }
+            //if either if statement returns false, then something was incorrect
+            $out_value = "Your username or password was incorrect!";
         }
+        //close connection
         $conn->close();
     ?>
     <!-- Navigation Bar -->
