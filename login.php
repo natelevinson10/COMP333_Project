@@ -20,8 +20,8 @@ session_start();
 
 <body>
     <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
+        //error_reporting(E_ALL);
+        //ini_set('display_errors', '1');
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -35,25 +35,27 @@ session_start();
             $user = $_REQUEST['userid'];
             $pass = $_REQUEST['login_password_1'];
 
-            $sql_query = "SELECT * FROM users WHERE username = ? AND password = ? ";
+            $sql_query = "SELECT password FROM users WHERE username = ?";
             $stmt = mysqli_prepare($conn, $sql_query);
-            mysqli_stmt_bind_param($stmt, "ss", $user, $pass);
+            mysqli_stmt_bind_param($stmt, "s", $user);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             $num = mysqli_num_rows($result);
             if ($num > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $hashed_pass = $row["password"];
+                $password_match = password_verify($pass, $hashed_pass);
+                if ($password_match) {
+                    
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["username"] = $user;
+                    $_SESSION["password"] = $hashed_pass;
 
-                $_SESSION["loggedin"] = true;
-                $_SESSION["username"] = $user;
-                $_SESSION["password"] = $pass;
-
-                header('Location: index.html');
-
+                    header('Location: index.html');
+                }
                 // In reality, if they give a correct user and password they should be redirected to the ratings page
             }
-            else {
-                $out_value = "Your username or password was incorrect!";
-            }
+            $out_value = "Your username or password was incorrect!";
         }
         $conn->close();
     ?>
