@@ -55,7 +55,7 @@ session_start();
 
                 if (mysqli_query($conn, $sql_query)) {
                     echo "Record inserted successfully.";
-                    header('Location: index.html');
+                    header('Location: ratings.php');
 
                     } else {
                     echo "Error inserting record: " . $conn->error;

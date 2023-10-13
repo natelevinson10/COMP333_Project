@@ -60,7 +60,7 @@ session_start();
                     $_SESSION["username"] = $user;
                     $_SESSION["password"] = $hashed_pass;
                     //redirect (will eventually be ratings page)
-                    header('Location: index.html');
+                    header('Location: ratings.php');
                 }
             }
             //if either if statement returns false, then something was incorrect

@@ -63,7 +63,7 @@ session_start();
                 $_SESSION["username"] = $user;
                 $_SESSION["password"] = $hashed_password;
 
-                header('Location: index.html');
+                header('Location: ratings.php');
 
                 // In reality, if they give a correct user and password they should be redirected to the ratings page
             }
