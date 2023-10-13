@@ -63,7 +63,7 @@ session_start();
                 $_SESSION["username"] = $user;
                 $_SESSION["password"] = $hashed_password;
 
-                header('Location: index.html');
+                header('Location: ratings.php');
 
                 // In reality, if they give a correct user and password they should be redirected to the ratings page
             }
@@ -102,30 +102,30 @@ session_start();
                 <h1 style="font-size:50px; text-align:center; color: rgb(4, 57, 94);">Sign up</h1>
                 <form name="form" method="POST" action="">
                 <div class="login_info">
-                    <label class="user_text"> Username* </label>
+                    <label class="label_text"> Username* </label>
                     <input required type="text" class="user" name="userid"/>
                 </div>
                 <div class="login_info">
-                    <label class="pass_text"> Password* </label>
+                    <label class="label_text"> Password* </label>
                     <input required type="password" class="pass" name="reg_password_1"/>
                 </div>
                 <div class="login_info">
-                    <label class="pass_text"> Reenter Password* </label>
+                    <label class="label_text"> Reenter Password* </label>
                     <input required type="password" class="pass" name="reg_password_2"/>
                 </div>
-                <p class="sign_in_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);"><?php 
+                <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);"><?php 
                     if(!empty($out_value)){
                         echo $out_value;
                     }
                 ?></p>
                 <div style="text-align: center;">
-                    <input name="submit" type="submit" id="log_in_btn" value="Sign up" style="padding:10px 30px; font-size: 22px;"/>
+                    <input name="submit" type="submit" class="submit_btn" value="Sign up" style="padding:10px 30px; font-size: 22px;"/>
                 </div>
-                <div class="sign_in_text" style="text-align: center; font-size: 20px;">
+                <div class="label_text" style="text-align: center; font-size: 20px;">
                     <span>Have an account?</span>
                     <a href="login.php">Log in here.</a>
                 </div>
-                <p class="sign_in_text" style="text-align: center; font-size: 17px;">*Required</p>
+                <p class="label_text" style="text-align: center; font-size: 17px;">*Required</p>
                 </form>
             </div>
         </div>

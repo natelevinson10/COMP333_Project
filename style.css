@@ -52,9 +52,7 @@ body {
   text-align: right;
 }
 
-.user_text,
-.pass_text,
-.sign_in_text {
+.label_text {
   font-family: 'Lobster Two', cursive;
   color: rgb(4, 57, 94);
   font-size: 25px;
@@ -178,7 +176,8 @@ body {
 }
 
 #sign_up_btn,
-#log_in_btn {
+#log_in_btn,
+.submit_btn {
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 70px;
