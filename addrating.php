@@ -14,36 +14,39 @@
     <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
 </head>
 
-<?php
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-     $servername = "localhost";
-     $username = "root";
-     $password = "";
-     $dbname = "music_db";
+<body>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "music_db";
+    }
 
-     $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-     if ($conn->connect_error) {
-         die("Connection failed: " . $conn->connect_error);
-     }
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-     $song = $_POST['song'];
-     $artist = $_POST['artist'];
-     $rating = $_POST['rating'];
+        $song = $_POST['song'];
+        $artist = $_POST['artist'];
+        $rating = $_POST['rating'];
+        if (!empty($song) && !empty($artist) && !empty($rating)) {
+            $sql_query = "INSERT INTO ratings (song, artist, rating) VALUES ('$song', '$artist', '$rating')";
 
-     if (!empty($song) && !empty($artist) && !empty($rating)) {
-         $sql_query = "INSERT INTO ratings (song, artist, rating) VALUES ('$song', '$artist', '$rating')";
+            if ($conn->query($sql_query) === TRUE) {
+                echo "Record inserted successfully.";
+                header('Location: index.html');
 
-         if ($conn->query($sql_query) === TRUE) {
-             echo "Record inserted successfully.";
-            } else {
-             echo "Error inserting record: " . $conn->error;
-         }
-     }
-
-     $conn->close();
- }
- ?>
+                } else {
+                echo "Error inserting record: " . $conn->error;
+            }
+        }
+        
+    $conn->close();
+    ?>
+ </body>
 
 <!-- Navigation Bar -->
 <div id="navbar" class="row navbar">
