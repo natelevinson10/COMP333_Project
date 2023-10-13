@@ -30,6 +30,12 @@
     $s_artist = $_REQUEST['artist'];
     $s_rating = $_REQUEST['rating'];
     }
+    if(!empty($s_songName) && !empty($s_artist) && !empty($s_rating)){
+        $sql_query = "SELECT * FROM ratings WHERE song = ('$s_songName) AND  artist = ('$s_artist) AND rating = ('$s_rating')";
+        $result = mysqli_query($conn, $sql_query);
+
+    }
+
 
 
 
