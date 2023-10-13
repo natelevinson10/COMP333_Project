@@ -16,12 +16,12 @@
 
 <body>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "music_db";
-    }
+
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
