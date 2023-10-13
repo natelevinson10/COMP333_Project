@@ -15,34 +15,37 @@
 </head>
 
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "music_db";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     $servername = "localhost";
+     $username = "root";
+     $password = "";
+     $dbname = "music_db";
 
-    if(isset($_REQUEST["submit"])){
-    $out_value = "";
-    $s_songName = $_REQUEST['songName'];
-    $s_artist = $_REQUEST['artist'];
-    $s_rating = $_REQUEST['rating'];
-    $s_username = $_REQUEST['username'];
+     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    }
-    if(!empty($s_songName) && !empty($s_artist) && !empty($s_rating) && !empty($_username)){
-        $sql_query = "SELECT * FROM ratings WHERE songName = ('$s_songName) AND  artist = ('$s_artist) AND rating = ('$s_rating') AND username = '($username')";
-        $result = mysqli_query($conn, $sql_query);
-        $result = mysqli_query($conn, $sql_query);
-        $row = mysqli_fetch_assoc($result);
+     if ($conn->connect_error) {
+         die("Connection failed: " . $conn->connect_error);
+     }
 
-    }
-    $conn->close();
-?>
+     $song = $_POST['song'];
+     $artist = $_POST['artist'];
+     $rating = $_POST['rating'];
+     $username = $_POST['username'];
 
-</php>
+     if (!empty($song) && !empty($artist) && !empty($rating) && !empty($username)) {
+         $sql_query = "INSERT INTO ratings (song, artist, rating, username) VALUES ('$song', '$artist', '$rating', '$username')";
+
+         if ($conn->query($sql_query) === TRUE) {
+             echo "Record inserted successfully.";
+         } else {
+             echo "Error inserting record: " . $conn->error;
+         }
+     }
+
+     $conn->close();
+ }
+ ?>
+
 <!-- Navigation Bar -->
 <div id="navbar" class="row navbar">
     <div class="navbar_logo" style= "padding-top:20px;">
@@ -72,18 +75,18 @@
     <div class="row home">
             <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Add Rating</h1>
     </div>
-    <form id="ratingForm"  method="GET" action="">
+    <form id="ratingForm"  method="POST" action="">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
 
-        <label for="songName">Song Name:</label><br>
-        <input type="text" id="songName" name="songName"><br>
+        <label for="song">Song Name:</label><br>
+        <input type="text" id="song" name="song"><br>
 
         <label for="artist">Artist:</label><br>
         <input type="text" id="artist" name="artist"><br>
 
         <label for="rating">Rating:</label><br>
-        <input type="number" id="rating" name="rating" min="1" max="5"><br><br>
+        <input type="text" id="rating" name="rating"><br>
         <input type="submit" name="submit" value="Submit"/>
     </form>
 </div>
