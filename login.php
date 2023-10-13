@@ -36,7 +36,7 @@ session_start();
             $pass = $_REQUEST['login_password_1'];
 
             //prepared statement
-            $sql_query = "SELECT password FROM users WHERE BINARY username = ?";
+            $sql_query = "SELECT password FROM users WHERE username = ?";
             $stmt = mysqli_prepare($conn, $sql_query);
             mysqli_stmt_bind_param($stmt, "s", $user);
             mysqli_stmt_execute($stmt);
