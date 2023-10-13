@@ -38,4 +38,11 @@
     <div class="row home">
             <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Delete Rating</h1>
     </div>
+    <div id="Confirmation" style="text-align:center;">
+        <p>Are you sure you want to delete this rating?</p>
+        <form id= "deleteRating"  method="POST" action="">
+        <input type="submit" name="confirm" value="Yes"/>
+        <input type="submit" name="reject" value="No"/>
+
+    </div>
 </div>
