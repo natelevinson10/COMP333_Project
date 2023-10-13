@@ -37,7 +37,11 @@ session_start();
             $artist = $_POST['artist'];
             $rating = $_POST['rating'];
             $user = $_SESSION["username"];
-            if (!empty($song) && !empty($artist) && !empty($rating)) {
+
+            if (!(($rating >= 1) && ($rating <= 5))) {
+                //send error message
+            }
+            else {
                 $sql_query = "INSERT INTO ratings (username, song, artist, rating) VALUES ('$user', '$song', '$artist', '$rating')";
 
                 if (mysqli_query($conn, $sql_query)) {
@@ -47,7 +51,7 @@ session_start();
                     } else {
                     echo "Error inserting record: " . $conn->error;
                 }
-            }
+        }
         }
         $conn->close();
     ?>
@@ -84,13 +88,13 @@ session_start();
     </div>
     <form id="ratingForm"  method="POST" action="">
         <label for="song">Song Name:</label><br>
-        <input type="text" id="song" name="song"><br>
+        <input required type="text" id="song" name="song"><br>
 
         <label for="artist">Artist:</label><br>
-        <input type="text" id="artist" name="artist"><br>
+        <input required type="text" id="artist" name="artist"><br>
 
         <label for="rating">Rating:</label><br>
-        <input type="text" id="rating" name="rating"><br>
+        <input required type="text" id="rating" name="rating"><br>
         <input type="submit" name="submit" value="Submit"/>
     </form>
 </div>
