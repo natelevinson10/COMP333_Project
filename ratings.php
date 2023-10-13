@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login page of the LoveNotes site.">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
     <title>LoveNotes</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="landing.js"></script> 
     <link rel="icon" href= "public/music.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
 </head>
@@ -49,8 +54,16 @@
             </tr>
             <tbody id="ratingTableBody">
                 <?php
-                    error_reporting(E_ALL);
-                    ini_set('display_errors', '1');
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "music_db";
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                    }
+                    
                     $sql_fetch_data = "SELECT * FROM ratings";
                     $result_fetch_data = $conn->query($sql_fetch_data);
                 
@@ -63,14 +76,14 @@
                             echo "<td>".$row["username"]."</td>";
                             echo "<td>".$row["artist"]."</td>";
                             echo "<td>".$row["song"]."</td>";
-                            echo "<td>".$row["rating"]."</td>"
+                            echo "<td>".$row["rating"]."</td>";
                 
                             echo "</tr>";
                         }
                     } else {
                         echo "0 results";
                     }
-
+                    $conn->close();
                 ?>
             </tbody>
             
