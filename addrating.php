@@ -30,14 +30,13 @@
      $song = $_POST['song'];
      $artist = $_POST['artist'];
      $rating = $_POST['rating'];
-     $username = $_POST['username'];
 
-     if (!empty($song) && !empty($artist) && !empty($rating) && !empty($username)) {
-         $sql_query = "INSERT INTO ratings (song, artist, rating, username) VALUES ('$song', '$artist', '$rating', '$username')";
+     if (!empty($song) && !empty($artist) && !empty($rating)) {
+         $sql_query = "INSERT INTO ratings (song, artist, rating) VALUES ('$song', '$artist', '$rating')";
 
          if ($conn->query($sql_query) === TRUE) {
              echo "Record inserted successfully.";
-         } else {
+            } else {
              echo "Error inserting record: " . $conn->error;
          }
      }
@@ -76,9 +75,6 @@
             <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Add Rating</h1>
     </div>
     <form id="ratingForm"  method="POST" action="">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-
         <label for="song">Song Name:</label><br>
         <input type="text" id="song" name="song"><br>
 
