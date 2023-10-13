@@ -9,6 +9,9 @@
     <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
 </head>
 
+<?php>
+
+</php>
 <!-- Navigation Bar -->
 <div id="navbar" class="row navbar">
     <div class="navbar_logo" style= "padding-top:20px;">
@@ -36,21 +39,6 @@
 <!-- Rating section -->
 <div id="Rating" class="container">
     <div class="row home">
-            <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Welcome, username</h1>
+            <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Add Rating</h1>
     </div>
-
-    <table style="width: 100%; margin-top: 20px;">
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Artist</th>
-            <th>Song</th>
-            <th>Rating</th>
-            <th>Action</th>
-        </tr>
-        <tbody id="ratingTableBody">
-            <!-- Table body to be populated -->
-        </tbody>
-        
-    </table>
 </div>
