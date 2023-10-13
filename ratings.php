@@ -100,7 +100,28 @@
                 <th>Action</th>
             </tr>
             <tbody id="ratingTableBody">
-                <!-- Table body to be populated -->
+                <?php
+                    $sql_fetch_data = "SELECT * FROM ratings";
+                    $result_fetch_data = $conn->query($sql_fetch_data);
+                
+                    // Check if data was fetched successfully
+                    if ($result_fetch_data->num_rows > 0) {
+                        // Output data of each row
+                        while($row = $result_fetch_data->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>".$row["id"]."</td>";
+                            echo "<td>".$row["username"]."</td>";
+                            echo "<td>".$row["artist"]."</td>";
+                            echo "<td>".$row["song"]."</td>";
+                            echo "<td>".$row["rating"]."</td>"
+                
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+
+                ?>
             </tbody>
             
         </table>
