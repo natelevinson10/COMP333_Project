@@ -29,16 +29,17 @@
     $s_songName = $_REQUEST['songName'];
     $s_artist = $_REQUEST['artist'];
     $s_rating = $_REQUEST['rating'];
+    $s_username = $_REQUEST['username'];
+
     }
-    if(!empty($s_songName) && !empty($s_artist) && !empty($s_rating)){
-        $sql_query = "SELECT * FROM ratings WHERE song = ('$s_songName) AND  artist = ('$s_artist) AND rating = ('$s_rating')";
+    if(!empty($s_songName) && !empty($s_artist) && !empty($s_rating) && !empty($_username)){
+        $sql_query = "SELECT * FROM ratings WHERE songName = ('$s_songName) AND  artist = ('$s_artist) AND rating = ('$s_rating') AND username = '($username')";
         $result = mysqli_query($conn, $sql_query);
+        $result = mysqli_query($conn, $sql_query);
+        $row = mysqli_fetch_assoc($result);
 
     }
-
-
-
-
+    $conn->close();
 ?>
 
 </php>
@@ -71,7 +72,10 @@
     <div class="row home">
             <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Add Rating</h1>
     </div>
-    <form id="ratingForm">
+    <form id="ratingForm"  method="GET" action="">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+
         <label for="songName">Song Name:</label><br>
         <input type="text" id="songName" name="songName"><br>
 
