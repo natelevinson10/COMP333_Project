@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login page of the LoveNotes site.">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
     <title>LoveNotes</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="landing.js"></script> 
     <link rel="icon" href= "public/music.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
 </head>
 
-<?php>
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "music_db";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+
+    if(isset($_REQUEST["submit"])){
+    $out_value = "";
+    $s_songName = $_REQUEST['songName'];
+    $s_artist = $_REQUEST['artist'];
+    $s_rating = $_REQUEST['rating'];
+    }
+
+
+
+?>
 
 </php>
 <!-- Navigation Bar -->
@@ -41,4 +65,15 @@
     <div class="row home">
             <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Add Rating</h1>
     </div>
+    <form id="ratingForm">
+        <label for="songName">Song Name:</label><br>
+        <input type="text" id="songName" name="songName"><br>
+
+        <label for="artist">Artist:</label><br>
+        <input type="text" id="artist" name="artist"><br>
+
+        <label for="rating">Rating:</label><br>
+        <input type="number" id="rating" name="rating" min="1" max="5"><br><br>
+        <input type="submit" name="submit" value="Submit"/>
+    </form>
 </div>
