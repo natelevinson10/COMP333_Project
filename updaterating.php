@@ -1,13 +1,21 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login page of the LoveNotes site.">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
     <title>LoveNotes</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="landing.js"></script> 
     <link rel="icon" href= "public/music.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/289e976bd2.js" crossorigin="anonymous"></script>
-</head>
 
 <!-- Navigation Bar -->
 <div id="navbar" class="row navbar">
@@ -38,4 +46,37 @@
     <div class="row home">
             <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Update Rating</h1>
     </div>
+
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "music_db";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+        
+        $sql_fetch_data = "SELECT * FROM ratings";
+        $result_fetch_data = $conn->query($sql_fetch_data);
+
+        $row = $result->fetch_assoc();
+        $name = $row['id'];
+
+
+    ?>
+
+    <form id="ratingForm"  method="POST" action="">
+        <label for="song">Song Name:</label><br>
+        <input required type="text" id="song" name="song"><br>
+
+        <label for="artist">Artist:</label><br>
+        <input required type="text" id="artist" name="artist"><br>
+
+        <label for="rating">Rating:</label><br>
+        <input required type="text" id="rating" name="rating"><br>
+        <input type="submit" name="submit" value="Submit"/>
+    </form>
+
 </div>
