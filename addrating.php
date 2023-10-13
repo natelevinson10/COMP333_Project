@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,35 +20,36 @@
 
 <body>
     <?php
-   
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "music_db";
-
-
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $song = $_POST['song'];
-        $artist = $_POST['artist'];
-        $rating = $_POST['rating'];
-        if (!empty($song) && !empty($artist) && !empty($rating)) {
-            $sql_query = "INSERT INTO ratings (song, artist, rating) VALUES ('$song', '$artist', '$rating')";
+        if(isset($_REQUEST["submit"])){
+            $song = $_POST['song'];
+            $artist = $_POST['artist'];
+            $rating = $_POST['rating'];
+            $user = $_SESSION["username"];
+            if (!empty($song) && !empty($artist) && !empty($rating)) {
+                $sql_query = "INSERT INTO ratings (username, song, artist, rating) VALUES ('$user', '$song', '$artist', '$rating')";
 
-            if ($conn->query($sql_query) === TRUE) {
-                echo "Record inserted successfully.";
-                header('Location: index.html');
+                if (mysqli_query($conn, $sql_query)) {
+                    echo "Record inserted successfully.";
+                    header('Location: index.html');
 
-                } else {
-                echo "Error inserting record: " . $conn->error;
+                    } else {
+                    echo "Error inserting record: " . $conn->error;
+                }
             }
         }
-        
-    $conn->close();
+        $conn->close();
     ?>
  </body>
 
