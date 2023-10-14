@@ -197,9 +197,7 @@ body {
 
 #sign_up_btn,
 #log_in_btn,
-.submit_btn,
-.log_out_btn,
-.return_btn,
+.submit_btn
 #rating_btn {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -217,8 +215,6 @@ body {
 #sign_up_btn:hover,
 #log_in_btn:hover,
 .submit_btn:hover,
-.log_out_btn:hover,
-.return_btn,
 #rating_btn{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
