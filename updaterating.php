@@ -32,22 +32,24 @@ session_start();
         }
 
         $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $song = "";
+        $artist = "";
+        $rating = "";
+        
+        if ($id !== null) {
+            $sql = "SELECT * FROM ratings WHERE id = $id";
+            $result_sql = $conn->query($sql);
+            if ($result_sql->num_rows > 0) {
+                $row = $result_sql->fetch_assoc();
+                $song = $row['song'];
+                $artist = $row['artist'];
+                $rating = $row['rating'];
+            }
+        
+        
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST["confirm"])) {
-                if ($id !== null) {
-                    $sql = "SELECT * FROM ratings WHERE id = $id";
-                    $result_sql = $conn->query($result_sql);
-                    if ($result_sql->num_rows > 0) {
-                        $row = $result_sql->fetch_assoc();
-                        $song = $row['song'];
-                        $artist = $row['artist'];
-                        $rating = $row['rating'];
-                    }
-
-                }
-            }       
         }
+
         $conn->close();
     ?>
     <!-- Navigation Bar -->
@@ -76,15 +78,15 @@ session_start();
                 <form name="ratings"  method="POST" action="">
                     <div class="login_info">
                         <label class="label_text" for="song">Song Name*</label>
-                        <input required type="text" id="song" name="song">
+                        <input required type="text" id="song" name="song" value= "<?php echo $song;?>">
                     </div>
                     <div class="login_info">
                         <label class="label_text" for="artist">Artist*</label>
-                        <input required type="text" id="artist" name="artist">
+                        <input required type="text" id="artist" name="artist" value= "<?php echo $artist;?>">
                     </div>
                     <div class="login_info">
                         <label class="label_text" for="rating">Rating*</label>
-                        <input required type="text" id="rating" name="rating">
+                        <input required type="text" id="rating" name="rating" value= "<?php echo $rating;?>">
                     </div>
                     <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);">
                         <?php if(!empty($out_value)){echo $out_value;}?>
