@@ -59,6 +59,9 @@ session_start();
         <div class="row home">
                 <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Welcome, <?php echo $user; ?>!</h1>
         </div>
+        <div class="rating_btns" style="text-align:center;">
+            <a href="addrating.php"><button id="rating_btn" style="margin: 5px 0px;">Rate a Song!</button></a>
+        </div>
 
         <table style="width: 100%; background-color: rgb(165, 197, 223);">
             <tr>
