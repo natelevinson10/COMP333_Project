@@ -40,37 +40,30 @@ session_start();
     <!-- Rating section -->
     <div id="Rating" class="container">
         <div class="row home">
-                <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Update Rating</h1>
+            <div class="update_form" id="form">
+                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Update Rating</h1>
+                <form name="ratings"  method="POST" action="">
+                    <div class="login_info">
+                        <label class="label_text" for="song">Song Name*</label>
+                        <input required type="text" id="song" name="song">
+                    </div>
+                    <div class="login_info">
+                        <label class="label_text" for="artist">Artist*</label>
+                        <input required type="text" id="artist" name="artist">
+                    </div>
+                    <div class="login_info">
+                        <label class="label_text" for="rating">Rating*</label>
+                        <input required type="text" id="rating" name="rating">
+                    </div>
+                    <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);">
+                        <?php if(!empty($out_value)){echo $out_value;}?>
+                    </p>
+                    <div style="text-align: center;">
+                        <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
+                    </div>
+                    <p class="label_text" style="text-align: center; font-size: 17px; margin-right: 0px;">*Required</p>
+                </form>
+            </div>
         </div>
-        <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "music_db";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-            
-            $sql_fetch_data = "SELECT * FROM ratings";
-            $result_fetch_data = $conn->query($sql_fetch_data);
-
-            $row = $result->fetch_assoc();
-            $name = $row['id'];
-
-
-        ?>
-        <form id="ratingForm"  method="POST" action="">
-            <label for="song">Song Name:</label><br>
-            <input required type="text" id="song" name="song"><br>
-
-            <label for="artist">Artist:</label><br>
-            <input required type="text" id="artist" name="artist"><br>
-
-            <label for="rating">Rating:</label><br>
-            <input required type="text" id="rating" name="rating"><br>
-            <input type="submit" name="submit" value="Submit"/>
-        </form>
     </div>
 </body>
