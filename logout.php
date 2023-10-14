@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Login page of the LoveNotes site.">
     <meta http-equiv='cache-control' content='no-cache'> 
@@ -19,6 +19,19 @@ session_start();
 </head>
 
 <body>
+    <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+
+        if(isset($_REQUEST["confirm"])){
+            session_destroy(); 
+            header("Location: index.html"); 
+        }
+        elseif(isset($_REQUEST["reject"])) {
+            header("Location: ratings.php"); 
+        }
+    ?>
+
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -40,37 +53,14 @@ session_start();
     <!-- Rating section -->
     <div id="Rating" class="container">
         <div class="row home">
-                <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Update Rating</h1>
+            <div class="update_form" id="form" style="text-align:center;">
+                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Log Out</h1>
+                <form name="logout"  method="POST" action="">
+                    <p class="label_text" style="margin-right: 0px;">Are you sure you want to log out?</p>
+                    <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="confirm" value="Yes"/>
+                    <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="reject" value="No"/>
+                </form>
+            </div>
         </div>
-        <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "music_db";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-            
-            $sql_fetch_data = "SELECT * FROM ratings";
-            $result_fetch_data = $conn->query($sql_fetch_data);
-
-            $row = $result->fetch_assoc();
-            $name = $row['id'];
-
-
-        ?>
-        <form id="ratingForm"  method="POST" action="">
-            <label for="song">Song Name:</label><br>
-            <input required type="text" id="song" name="song"><br>
-
-            <label for="artist">Artist:</label><br>
-            <input required type="text" id="artist" name="artist"><br>
-
-            <label for="rating">Rating:</label><br>
-            <input required type="text" id="rating" name="rating"><br>
-            <input type="submit" name="submit" value="Submit"/>
-        </form>
     </div>
 </body>

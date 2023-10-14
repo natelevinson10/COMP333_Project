@@ -121,11 +121,11 @@ session_start();
                 <div style="text-align: center;">
                     <input name="submit" type="submit" class="submit_btn" value="Sign up" style="padding:10px 30px; font-size: 22px;"/>
                 </div>
-                <div class="label_text" style="text-align: center; font-size: 20px;">
+                <div class="label_text" style="text-align: center; font-size: 20px; margin-right:0px;">
                     <span>Have an account?</span>
                     <a href="login.php">Log in here.</a>
                 </div>
-                <p class="label_text" style="text-align: center; font-size: 17px;">*Required</p>
+                <p class="label_text" style="text-align: center; font-size: 17px; margin-right:0px;">*Required</p>
                 </form>
             </div>
         </div>

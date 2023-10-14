@@ -5,7 +5,7 @@ LoveNotes is a platform that allows users to share, rate, and discover new music
 
 Noteworthy Files🛠️:\
 Public: folder of dependencies (just photos currently)\
-Index.html: HTML code for LoveNotes' landing page. This is the page users are greeted with upon visiting the website.\
+index.html: HTML code for LoveNotes' landing page. This is the page users are greeted with upon visiting the website.\
 Login.html: HTML code for LoveNotes' account page. This page will likely be dynamic and will show different content based on whether or not a user is logged into their account or not.\
 Style.css: CSS code used to style the landing page (index.html), including the background colors, fonts, font sizes, and overall aesthetic.
 

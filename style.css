@@ -65,6 +65,26 @@ body {
   height: 25px;
 }
 
+.update_form {
+  padding: 15px;
+  background-color: rgb(165, 197, 223);
+}
+
+.table_cell {
+  font-family: 'Lobster Two', cursive;
+  color: rgb(4, 57, 94);
+  font-size: 20px;
+  text-align: center;
+}
+
+.table_header {
+  font-family: 'Lobster Two', cursive;
+  color: rgb(4, 57, 94);
+  font-size: 30px;
+  text-align: center;
+  text-decoration: underline;
+}
+
 /*Navbar*/
 .navbar {
   background-color: rgb(4, 59, 98);
@@ -114,7 +134,7 @@ body {
 #features-btn,
 #testimonals-btn,
 #about-btn,
-#login-btn{
+#login-btn {
   color: rgb(105, 17, 69); 
   text-decoration: none;
   font-size: 30px;
@@ -177,7 +197,8 @@ body {
 
 #sign_up_btn,
 #log_in_btn,
-.submit_btn {
+.submit_btn,
+.log_out_btn {
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 70px;
@@ -192,7 +213,9 @@ body {
 }
 
 #sign_up_btn:hover,
-#log_in_btn:hover{
+#log_in_btn:hover,
+.submit_btn:hover,
+.log_out_btn:hover{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
 }
