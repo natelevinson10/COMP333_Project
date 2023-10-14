@@ -61,11 +61,12 @@ session_start();
             } else {
                 echo "Error updating record: " . $conn->error;
             }
-        }
-        
 
+            }elseif (isset($_POST["reject"])) {
+                echo "Deletion canceled.";
+                header('Location: ratings.php');
+            }
         }
-
         $conn->close();
     ?>
     <!-- Navigation Bar -->
@@ -109,6 +110,7 @@ session_start();
                     </p>
                     <div style="text-align: center;">
                         <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
+                        <input type="submit" name="submit" value="Cancel" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
                     </div>
                     <p class="label_text" style="text-align: center; font-size: 17px; margin-right: 0px;">*Required</p>
                 </form>

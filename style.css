@@ -198,7 +198,8 @@ body {
 #sign_up_btn,
 #log_in_btn,
 .submit_btn,
-.log_out_btn {
+.log_out_btn,
+.return_btn {
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 70px;
@@ -215,7 +216,8 @@ body {
 #sign_up_btn:hover,
 #log_in_btn:hover,
 .submit_btn:hover,
-.log_out_btn:hover{
+.log_out_btn:hover,
+.return_btn{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
 }
