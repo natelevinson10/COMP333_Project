@@ -36,6 +36,7 @@
 
                     if ($conn->query($sql) === TRUE) {
                         echo "Record with ID $id deleted successfully.";
+                        header('Location: ratings.php');
                     } else {
                         echo "Error deleting record: " . $conn->error;
                     }
