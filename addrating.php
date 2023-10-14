@@ -60,7 +60,7 @@ session_start();
                     } else {
                     echo "Error inserting record: " . $conn->error;
                 }
-        }
+        } 
         }
         $conn->close();
     ?>
@@ -106,7 +106,7 @@ session_start();
                     </p>
                     <div style="text-align: center;">
                         <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
-                        <input type="submit" name="reject" value="Go Back" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
+                        <a href="ratings.php"><button type="button" class="submit_btn" style="padding:10px 30px; font-size: 22px;">Go Back</button></a>
                     </div>
                     <p class="label_text" style="text-align: center; font-size: 17px; margin-right: 0px;">*Required</p>
                 </form>
