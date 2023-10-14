@@ -197,7 +197,7 @@ body {
 
 #sign_up_btn,
 #log_in_btn,
-.submit_btn
+.submit_btn,
 #rating_btn {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -215,7 +215,7 @@ body {
 #sign_up_btn:hover,
 #log_in_btn:hover,
 .submit_btn:hover,
-#rating_btn{
+#rating_btn:hover{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
 }
@@ -342,16 +342,6 @@ body {
 
 #disclaimer #logo {
   justify-content: center;
-}
-
-.rating_btns {
-  margin: 10px auto; 
-  text-align: center;
-}
-
-#rating_btn {
-  margin: 5px 0px;
-  padding: 10px 20px; 
 }
 
 /*Tab resizing*/
