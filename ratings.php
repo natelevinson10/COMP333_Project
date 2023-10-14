@@ -77,7 +77,8 @@
                             echo "<td>".$row["artist"]."</td>";
                             echo "<td>".$row["song"]."</td>";
                             echo "<td>".$row["rating"]."</td>";
-                
+                            echo "<td><a href='deleterating.php?id=" . $row["id"] . "'>Delete</a></td>";
+                            echo "<td><a href='updaterating.php?id=" . $row["id"] . "'>Update</a></td>";
                             echo "</tr>";
                         }
                     } else {
