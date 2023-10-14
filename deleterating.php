@@ -11,33 +11,43 @@
 
 <body>  
     <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "music_db";
 
-        // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
+        $id = isset($_POST['id']) ? $_POST['id'] : null;
+
+
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["confirm"])) {
-                $sql = "DELETE FROM ratings WHERE id = 64";
+                if ($id !== null) {
+                    $sql = "DELETE FROM ratings WHERE id = $id";
 
-                if ($conn->query($sql) === TRUE) {
-                    echo "Record deleted successfully.";
+                    if ($conn->query($sql) === TRUE) {
+                        echo "Record with ID $id deleted successfully.";
+                    } else {
+                        echo "Error deleting record: " . $conn->error;
+                    }
                 } else {
-                    echo "Error deleting record: " . $conn->error;
+                    echo "ID is not set.";
                 }
+            } elseif (isset($_POST["reject"])) {
+                echo "Deletion canceled.";
             }
         }
-
-        $conn->close();
-    ?>
+    $conn->close();
+?>
 </body>
 
 
@@ -69,13 +79,14 @@
 <!-- Rating section -->
 <div id="Rating" class="container">
     <div class="row home">
-            <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Delete Rating</h1>
+            <h1 style="font-size:80px; color: rgb(4, 57, 94);">Delete Rating</h1>
     </div>
     <div id="Confirmation" style="text-align:center;">
         <p>Are you sure you want to delete this rating?</p>
         <form id= "deleteRating"  method="POST" action="">
-        <input type="submit" name="confirm" value="Yes"/>
-        <input type="submit" name="reject" value="No"/>
-
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
+            <input type="submit" name="confirm" value="Yes"/>
+            <input type="submit" name="reject" value="No"/>
+        </form>
     </div>
 </div>
