@@ -45,6 +45,7 @@
                 }
             } elseif (isset($_POST["reject"])) {
                 echo "Deletion canceled.";
+                header('Location: ratings.php');
             }
         }
     $conn->close();
