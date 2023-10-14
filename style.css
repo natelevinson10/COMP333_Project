@@ -199,7 +199,8 @@ body {
 #log_in_btn,
 .submit_btn,
 .log_out_btn,
-.return_btn {
+.return_btn,
+#rating_btn {
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 70px;
@@ -217,7 +218,8 @@ body {
 #log_in_btn:hover,
 .submit_btn:hover,
 .log_out_btn:hover,
-.return_btn{
+.return_btn,
+#rating_btn{
   background-color: rgb(2, 35, 59);
   cursor:pointer;
 }
@@ -344,6 +346,16 @@ body {
 
 #disclaimer #logo {
   justify-content: center;
+}
+
+.rating_btns {
+  margin: 10px auto; 
+  text-align: center;
+}
+
+#rating_btn {
+  margin: 5px 0px;
+  padding: 10px 20px; 
 }
 
 /*Tab resizing*/
