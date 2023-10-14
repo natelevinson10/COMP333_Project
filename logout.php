@@ -19,6 +19,19 @@ session_start();
 </head>
 
 <body>
+    <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+
+        if(isset($_REQUEST["confirm"])){
+            session_destroy(); 
+            header("Location: index.html"); 
+        }
+        elseif(isset($_REQUEST["reject"])) {
+            header("Location: ratings.php"); 
+        }
+    ?>
+
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -40,12 +53,13 @@ session_start();
     <!-- Rating section -->
     <div id="Rating" class="container">
         <div class="row home">
-            <div class="update_form" style="text-align:center;">
-                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Delete Rating</h1>
-                <form id= "deleteRating"  method="POST" action="">
-                <p class="label_text" style="margin-right: 0px;">Are you sure you want to delete this rating?</p>
-                <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="confirm" value="Yes"/>
-                <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="reject" value="No"/>
+            <div class="update_form" id="form" style="text-align:center;">
+                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Log Out</h1>
+                <form name="logout"  method="POST" action="">
+                    <p class="label_text" style="margin-right: 0px;">Are you sure you want to log out?</p>
+                    <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="confirm" value="Yes"/>
+                    <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="reject" value="No"/>
+                </form>
             </div>
         </div>
     </div>
