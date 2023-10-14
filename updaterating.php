@@ -56,11 +56,12 @@ session_start();
             $sql_query2 = "SELECT * FROM ratings WHERE song = ('$updatedSong')";
             $result2 = mysqli_query($conn, $sql_query2);
             $row2 = mysqli_fetch_assoc($result2);
+            $id2 = $row2['id'];
 
             if (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
-            elseif (!(is_null($row2))) {
+            elseif (!(is_null($row2)) && ($id != $id2)){
                 $out_value = "You have already rated this song!";
             }
             else{
