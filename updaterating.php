@@ -77,10 +77,6 @@ session_start();
 
             }
         }
-        elseif (isset($_POST["reject"])) {
-            echo "Deletion canceled.";
-            header('Location: ratings.php');
-            }
         }
         $conn->close();
     ?>
@@ -125,7 +121,7 @@ session_start();
                     </p>
                     <div style="text-align: center;">
                         <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
-                        <input type="submit" name="submit" value="Cancel" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
+                        <a href="ratings.php" class="submit_btn" style="padding:10px 30px; font-size: 22px; text-decoration: none;">Cancel</a>
                     </div>
                     <p class="label_text" style="text-align: center; font-size: 17px; margin-right: 0px;">*Required</p>
                 </form>
