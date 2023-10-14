@@ -46,6 +46,22 @@ session_start();
                 $rating = $row['rating'];
             }
         
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+        
+            $updatedSong = $_POST['song'];
+            $updatedArtist = $_POST['artist'];
+            $updatedRating = $_POST['rating'];
+        
+            $updateSql = "UPDATE ratings SET song='$updatedSong', artist='$updatedArtist', rating='$updatedRating' WHERE id=$id";
+        
+            if ($conn->query($updateSql) === TRUE) {
+                echo "Record updated successfully.";
+                header('Location: ratings.php');
+                
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        }
         
 
         }
