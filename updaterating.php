@@ -23,6 +23,7 @@ session_start();
         $servername = "localhost";
         $username = "root";
         $password = "";
+        $out_value = "";
         $dbname = "music_db";
         $user = $_SESSION["username"];
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -51,7 +52,11 @@ session_start();
             $updatedSong = $_POST['song'];
             $updatedArtist = $_POST['artist'];
             $updatedRating = $_POST['rating'];
-        
+
+            if (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
+                $out_value = "Rating must be an integer between 1 and 5.";
+            }
+            else{
             $updateSql = "UPDATE ratings SET song='$updatedSong', artist='$updatedArtist', rating='$updatedRating' WHERE id=$id";
         
             if ($conn->query($updateSql) === TRUE) {
@@ -62,9 +67,11 @@ session_start();
                 echo "Error updating record: " . $conn->error;
             }
 
-            }elseif (isset($_POST["reject"])) {
-                echo "Deletion canceled.";
-                header('Location: ratings.php');
+            }
+        }
+        elseif (isset($_POST["reject"])) {
+            echo "Deletion canceled.";
+            header('Location: ratings.php');
             }
         }
         $conn->close();
