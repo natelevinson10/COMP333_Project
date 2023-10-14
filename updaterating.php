@@ -19,6 +19,67 @@ session_start();
 </head>
 
 <body>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $out_value = "";
+        $dbname = "music_db";
+        $user = $_SESSION["username"];
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $song = "";
+        $artist = "";
+        $rating = "";
+        
+        if ($id !== null) {
+            $sql = "SELECT * FROM ratings WHERE id = $id";
+            $result_sql = $conn->query($sql);
+            if ($result_sql->num_rows > 0) {
+                $row = $result_sql->fetch_assoc();
+                $song = $row['song'];
+                $artist = $row['artist'];
+                $rating = $row['rating'];
+            }
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+        
+            $updatedSong = $_POST['song'];
+            $updatedArtist = $_POST['artist'];
+            $updatedRating = $_POST['rating'];
+            
+            $sql_query2 = "SELECT * FROM ratings WHERE song = ('$updatedSong')";
+            $result2 = mysqli_query($conn, $sql_query2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $id2 = $row2['id'];
+
+            if (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
+                $out_value = "Rating must be an integer between 1 and 5.";
+            }
+            elseif (!(is_null($row2)) && ($id != $id2)){
+                $out_value = "You have already rated this song!";
+            }
+            else{
+            $updateSql = "UPDATE ratings SET song='$updatedSong', artist='$updatedArtist', rating='$updatedRating' WHERE id=$id";
+        
+            if ($conn->query($updateSql) === TRUE) {
+                echo "Record updated successfully.";
+                header('Location: ratings.php');
+                
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+
+            }
+        }
+        }
+        $conn->close();
+    ?>
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
@@ -40,37 +101,31 @@ session_start();
     <!-- Rating section -->
     <div id="Rating" class="container">
         <div class="row home">
-                <h1 style="font-size:80px; color: rgb(4, 57, 94);";>Update Rating</h1>
+            <div class="update_form" id="form">
+                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Update Rating</h1>
+                <form name="ratings"  method="POST" action="">
+                    <div class="login_info">
+                        <label class="label_text" for="song">Song Name*</label>
+                        <input required type="text" id="song" name="song" value= "<?php echo $song;?>">
+                    </div>
+                    <div class="login_info">
+                        <label class="label_text" for="artist">Artist*</label>
+                        <input required type="text" id="artist" name="artist" value= "<?php echo $artist;?>">
+                    </div>
+                    <div class="login_info">
+                        <label class="label_text" for="rating">Rating*</label>
+                        <input required type="text" id="rating" name="rating" value= "<?php echo $rating;?>">
+                    </div>
+                    <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);">
+                        <?php if(!empty($out_value)){echo $out_value;}?>
+                    </p>
+                    <div style="text-align: center;">
+                        <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
+                        <a href="ratings.php" class="submit_btn" style="padding:10px 30px; font-size: 22px; text-decoration: none;">Cancel</a>
+                    </div>
+                    <p class="label_text" style="text-align: center; font-size: 17px; margin-right: 0px;">*Required</p>
+                </form>
+            </div>
         </div>
-        <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "music_db";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-            
-            $sql_fetch_data = "SELECT * FROM ratings";
-            $result_fetch_data = $conn->query($sql_fetch_data);
-
-            $row = $result->fetch_assoc();
-            $name = $row['id'];
-
-
-        ?>
-        <form id="ratingForm"  method="POST" action="">
-            <label for="song">Song Name:</label><br>
-            <input required type="text" id="song" name="song"><br>
-
-            <label for="artist">Artist:</label><br>
-            <input required type="text" id="artist" name="artist"><br>
-
-            <label for="rating">Rating:</label><br>
-            <input required type="text" id="rating" name="rating"><br>
-            <input type="submit" name="submit" value="Submit"/>
-        </form>
     </div>
 </body>
