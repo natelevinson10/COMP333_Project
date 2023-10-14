@@ -19,6 +19,37 @@ session_start();
 </head>
 
 <body>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "music_db";
+        $user = $_SESSION["username"];
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST["confirm"])) {
+                if ($id !== null) {
+                    $sql = "SELECT * FROM ratings WHERE id = $id";
+                    $result_sql = $conn->query($result_sql);
+                    if ($result_sql->num_rows > 0) {
+                        $row = $result_sql->fetch_assoc();
+                        $song = $row['song'];
+                        $artist = $row['artist'];
+                        $rating = $row['rating'];
+                    }
+
+                }
+            }       
+        }
+        $conn->close();
+    ?>
     <!-- Navigation Bar -->
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">

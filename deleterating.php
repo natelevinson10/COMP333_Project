@@ -24,16 +24,12 @@ session_start();
         $username = "root";
         $password = "";
         $dbname = "music_db";
-
+        $user = $_SESSION["username"];
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
-        $id = isset($_POST['id']) ? $_POST['id'] : null;
-
-
         $id = isset($_GET['id']) ? $_GET['id'] : null;
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -81,7 +77,7 @@ session_start();
             <div class="update_form" style="text-align:center;">
                 <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Delete Rating</h1>
                 <form id= "deleteRating"  method="POST" action="">
-                  <p class="label_text" style="margin-right: 0px;">Are you sure you want to delete this rating?</p>
+                  <p class="label_text" style="margin-right: 0px;"><?php echo $user; ?>, are you sure you want to delete this rating?</p>
                   <input type="hidden" name="id" value="<?php echo $id; ?>" />
                   <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="confirm" value="Yes"/>
                   <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="reject" value="No"/>
