@@ -81,7 +81,9 @@ session_start();
                         echo "<td class='table_cell'>".$row["artist"]."</td>";
                         echo "<td class='table_cell'>".$row["song"]."</td>";
                         echo "<td class='table_cell'>".$row["rating"]."</td>";
-                        echo "<td class='table_cell'><a href='deleterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Delete</a><a href='updaterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Update</a></td>";
+                        echo "<td class='table_cell'><a href='viewrating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>View</a>
+                                                     <a href='updaterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Update</a>
+                                                     <a href='deleterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Delete</a></td>";
                         echo "</tr>";
                     }
                 ?>
