@@ -60,10 +60,9 @@ session_start();
                 $sql_query2 = "INSERT INTO users (username, password) VALUES (?, ?)";
                 $stmt = mysqli_prepare($conn, $sql_query2);
                 mysqli_stmt_bind_param($stmt, "ss", $user, $hashed_password);
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
+                $boo = mysqli_stmt_execute($stmt);
 
-                if(!$result){
+                if(!$boo){
                     $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
                 }
 

@@ -39,10 +39,12 @@ session_start();
             $rating = $_POST['rating'];
             $user = $_SESSION["username"];
 
-            $sql_query = "SELECT * FROM ratings WHERE username = ('$user') AND song = ('$song') AND artist = ('$artist')";
-            $result = mysqli_query($conn, $sql_query);
+            $sql_query = "SELECT * FROM ratings WHERE username = ? AND song = ? AND artist = ?";
+            $stmt = mysqli_prepare($conn, $sql_query);
+            mysqli_stmt_bind_param($stmt, "sss", $user, $song, $artist);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
             $row = mysqli_fetch_assoc($result);
-
 
             if (!(($rating >= 1) && ($rating <= 5))) {
                 $out_value = "Rating must be an integer between 1 and 5.";
@@ -51,16 +53,19 @@ session_start();
                 $out_value = "You have already rated this song!";
             }
             else {
-                $sql_query = "INSERT INTO ratings (username, song, artist, rating) VALUES ('$user', '$song', '$artist', '$rating')";
 
-                if (mysqli_query($conn, $sql_query)) {
+                $sql_query1 = "INSERT INTO ratings (username, song, artist, rating) VALUES (?, ?, ?, ?)";
+                $stmt1 = mysqli_prepare($conn, $sql_query1);
+                mysqli_stmt_bind_param($stmt1, "sssi", $user, $song, $artist, $rating);
+                $boo = mysqli_stmt_execute($stmt1);
+
+                if (!$boo) {
+                    echo "Error inserting record: " . $conn->error;
+                } else {
                     echo "Record inserted successfully.";
                     header('Location: ratings.php');
-
-                    } else {
-                    echo "Error inserting record: " . $conn->error;
                 }
-        } 
+            } 
         }
         $conn->close();
     ?>
