@@ -63,9 +63,10 @@ session_start();
                 $sql = "UPDATE ratings SET song = ?, artist = ?, rating =? WHERE id = ?";
                 $stmt = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt, "ssii", $song, $artist, $updatedRating, $id);
-                $boo = mysqli_stmt_execute($stmt);
+                mysqli_stmt_execute($stmt);
+                $num = mysqli_affected_rows($conn);
         
-                if ($boo) {
+                if ($num > 0) {
                     echo "Record updated successfully.";
                     header('Location: ratings.php');
                     

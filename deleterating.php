@@ -39,9 +39,10 @@ session_start();
 
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "i", $id);
-                    $boo = mysqli_stmt_execute($stmt);
+                    mysqli_stmt_execute($stmt);
+                    $num = mysqli_affected_rows($conn);
 
-                    if ($boo) {
+                    if ($num > 0) {
                         echo "Record with ID $id deleted successfully.";
                         header('Location: ratings.php');
                     } else {
