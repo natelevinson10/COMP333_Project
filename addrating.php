@@ -57,9 +57,10 @@ session_start();
                 $sql_query1 = "INSERT INTO ratings (username, song, artist, rating) VALUES (?, ?, ?, ?)";
                 $stmt1 = mysqli_prepare($conn, $sql_query1);
                 mysqli_stmt_bind_param($stmt1, "sssi", $user, $song, $artist, $rating);
-                $boo = mysqli_stmt_execute($stmt1);
+                mysqli_stmt_execute($stmt1);
+                $num = mysqli_affected_rows($conn);
 
-                if (!$boo) {
+                if ($num == 0) {
                     echo "Error inserting record: " . $conn->error;
                 } else {
                     echo "Record inserted successfully.";

@@ -60,19 +60,19 @@ session_start();
                 $sql_query2 = "INSERT INTO users (username, password) VALUES (?, ?)";
                 $stmt = mysqli_prepare($conn, $sql_query2);
                 mysqli_stmt_bind_param($stmt, "ss", $user, $hashed_password);
-                $boo = mysqli_stmt_execute($stmt);
+                mysqli_stmt_execute($stmt);
+                $num = mysqli_affected_rows($conn);
 
-                if(!$boo){
+                if($num == 0){
                     $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
                 }
+                else {
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["username"] = $user;
+                    $_SESSION["password"] = $hashed_password;
 
-                $_SESSION["loggedin"] = true;
-                $_SESSION["username"] = $user;
-                $_SESSION["password"] = $hashed_password;
-
-                header('Location: ratings.php');
-
-                // In reality, if they give a correct user and password they should be redirected to the ratings page
+                    header('Location: ratings.php');
+                }
             }
 
         }

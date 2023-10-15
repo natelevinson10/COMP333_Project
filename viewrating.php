@@ -34,6 +34,7 @@ session_start();
 
         $id = isset($_GET['id']) ? $_GET['id'] : null;
         $song = "";
+        $user = "";
         $artist = "";
         $rating = "";
         
@@ -50,32 +51,8 @@ session_start();
                 $song = $row['song'];
                 $artist = $row['artist'];
                 $rating = $row['rating'];
+                $user = $row['username'];
             }
-        
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-        
-            $updatedRating = $_POST['rating'];
-
-            if (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
-                $out_value = "Rating must be an integer between 1 and 5.";
-            }
-            else {
-                $sql = "UPDATE ratings SET song = ?, artist = ?, rating =? WHERE id = ?";
-                $stmt = mysqli_prepare($conn, $sql);
-                mysqli_stmt_bind_param($stmt, "ssii", $song, $artist, $updatedRating, $id);
-                mysqli_stmt_execute($stmt);
-                $num = mysqli_affected_rows($conn);
-        
-                if ($num > 0) {
-                    echo "Record updated successfully.";
-                    header('Location: ratings.php');
-                    
-                } else {
-                    echo "Error updating record: " . $conn->error;
-                }
-
-            }
-        }
         }
         $conn->close();
     ?>
@@ -100,29 +77,27 @@ session_start();
     <!-- Rating section -->
     <div id="Rating" class="container">
         <div class="row home">
-            <div class="update_form" id="form">
-                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Update Rating</h1>
-                <form name="ratings"  method="POST" action="">
-                    <div style="text-align:center;" class="login_info">
-                        <label class="label_text" for="song">Song Name:</label>
-                        <span class="label_text"> <?php echo $song;?> </span>
-                    </div>
-                    <div style="text-align:center;" class="login_info">
-                        <label class="label_text" for="artist">Artist:</label>
-                        <span class="label_text"> <?php echo $artist;?> </span>
-                    </div>
-                    <div style="text-align:center;" class="login_info">
-                        <label class="label_text" for="rating">Rating:</label>
-                        <input required type="text" id="rating" name="rating" value= "<?php echo $rating;?>">
-                    </div>
-                    <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);">
-                        <?php if(!empty($out_value)){echo $out_value;}?>
-                    </p>
-                    <div style="text-align: center;">
-                        <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
-                        <a href="ratings.php" class="submit_btn" style="padding:10px 30px; font-size: 22px; text-decoration: none;">Cancel</a>
-                    </div>
-                </form>
+            <div class="update_form" style="padding:30px;">
+                <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>View Rating</h1>
+                <div style="text-align:center;" class="login_info">
+                    <label class="label_text" for="song">Username:</label>
+                    <span class="label_text"> <?php echo $user;?> </span>
+                </div>
+                <div style="text-align:center;" class="login_info">
+                    <label class="label_text" for="song">Song Name:</label>
+                    <span class="label_text"> <?php echo $song;?> </span>
+                </div>
+                <div style="text-align:center;" class="login_info">
+                    <label class="label_text" for="artist">Artist:</label>
+                    <span class="label_text"> <?php echo $artist;?> </span>
+                </div>
+                <div style="text-align:center;margin-bottom:25px;" class="login_info">
+                    <label class="label_text" for="rating">Rating:</label>
+                    <span class="label_text"> <?php echo $rating;?> </span>
+                </div>
+                <div style="text-align: center;">
+                    <a href="ratings.php" class="submit_btn" style="padding:10px 30px; font-size: 22px; text-decoration: none;">Go Back</a>
+                </div>
             </div>
         </div>
     </div>
