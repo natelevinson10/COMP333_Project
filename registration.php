@@ -40,8 +40,11 @@ session_start();
             $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
 
 
-            $sql_query1 = "SELECT * FROM users WHERE username = ('$user')";
-            $result = mysqli_query($conn, $sql_query1);
+            $sql_query1 = "SELECT * FROM users WHERE username = ?";
+            $stmt = mysqli_prepare($conn, $sql_query1);
+            mysqli_stmt_bind_param($stmt, "s", $user);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
             $row = mysqli_fetch_assoc($result);
 
             if(!(is_null($row))) {
@@ -54,8 +57,13 @@ session_start();
                 $out_value = "Passwords must match!";
             }
             else {
-                $sql_query2 = "INSERT INTO users (username, password) VALUES ('$user', '$hashed_password')";
-                if(!(mysqli_query($conn, $sql_query2))){
+                $sql_query2 = "INSERT INTO users (username, password) VALUES (?, ?)";
+                $stmt = mysqli_prepare($conn, $sql_query2);
+                mysqli_stmt_bind_param($stmt, "ss", $user, $hashed_password);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+
+                if(!$result){
                     $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
                 }
 
