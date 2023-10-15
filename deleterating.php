@@ -35,9 +35,13 @@ session_start();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["confirm"])) {
                 if ($id !== null) {
-                    $sql = "DELETE FROM ratings WHERE id = $id";
+                    $sql = "DELETE FROM ratings WHERE id = ?";
 
-                    if ($conn->query($sql) === TRUE) {
+                    $stmt = mysqli_prepare($conn, $sql);
+                    mysqli_stmt_bind_param($stmt, "i", $id);
+                    $boo = mysqli_stmt_execute($stmt);
+
+                    if ($boo) {
                         echo "Record with ID $id deleted successfully.";
                         header('Location: ratings.php');
                     } else {

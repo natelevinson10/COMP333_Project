@@ -38,10 +38,15 @@ session_start();
         $rating = "";
         
         if ($id !== null) {
-            $sql = "SELECT * FROM ratings WHERE id = $id";
-            $result_sql = $conn->query($sql);
-            if ($result_sql->num_rows > 0) {
-                $row = $result_sql->fetch_assoc();
+            $sql = "SELECT * FROM ratings WHERE id = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "i", $id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $num = mysqli_num_rows($result);
+
+            if ($num > 0) {
+                $row = mysqli_fetch_assoc($result);
                 $song = $row['song'];
                 $artist = $row['artist'];
                 $rating = $row['rating'];
@@ -55,9 +60,12 @@ session_start();
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
             else {
-                $updateSql = "UPDATE ratings SET song='$song', artist='$artist', rating='$updatedRating' WHERE id=$id";
+                $sql = "UPDATE ratings SET song = ?, artist = ?, rating =? WHERE id = ?";
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "ssii", $song, $artist, $updatedRating, $id);
+                $boo = mysqli_stmt_execute($stmt);
         
-                if ($conn->query($updateSql) === TRUE) {
+                if ($boo) {
                     echo "Record updated successfully.";
                     header('Location: ratings.php');
                     
