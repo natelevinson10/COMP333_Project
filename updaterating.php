@@ -49,31 +49,21 @@ session_start();
         
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         
-            $updatedSong = $_POST['song'];
-            $updatedArtist = $_POST['artist'];
             $updatedRating = $_POST['rating'];
-            
-            $sql_query2 = "SELECT * FROM ratings WHERE song = ('$updatedSong')";
-            $result2 = mysqli_query($conn, $sql_query2);
-            $row2 = mysqli_fetch_assoc($result2);
-            $id2 = $row2['id'];
 
             if (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
-            elseif (!(is_null($row2)) && ($id != $id2)){
-                $out_value = "You have already rated this song!";
-            }
-            else{
-            $updateSql = "UPDATE ratings SET song='$updatedSong', artist='$updatedArtist', rating='$updatedRating' WHERE id=$id";
+            else {
+                $updateSql = "UPDATE ratings SET song='$song', artist='$artist', rating='$updatedRating' WHERE id=$id";
         
-            if ($conn->query($updateSql) === TRUE) {
-                echo "Record updated successfully.";
-                header('Location: ratings.php');
-                
-            } else {
-                echo "Error updating record: " . $conn->error;
-            }
+                if ($conn->query($updateSql) === TRUE) {
+                    echo "Record updated successfully.";
+                    header('Location: ratings.php');
+                    
+                } else {
+                    echo "Error updating record: " . $conn->error;
+                }
 
             }
         }
@@ -104,16 +94,16 @@ session_start();
             <div class="update_form" id="form">
                 <h1 style="font-size:60px; color: rgb(4, 57, 94); text-align:center;";>Update Rating</h1>
                 <form name="ratings"  method="POST" action="">
-                    <div class="login_info">
-                        <label class="label_text" for="song">Song Name*</label>
-                        <input required type="text" id="song" name="song" value= "<?php echo $song;?>">
+                    <div style="text-align:center;" class="login_info">
+                        <label class="label_text" for="song">Song Name:</label>
+                        <span class="label_text"> <?php echo $song;?> </span>
                     </div>
-                    <div class="login_info">
-                        <label class="label_text" for="artist">Artist*</label>
-                        <input required type="text" id="artist" name="artist" value= "<?php echo $artist;?>">
+                    <div style="text-align:center;" class="login_info">
+                        <label class="label_text" for="artist">Artist:</label>
+                        <span class="label_text"> <?php echo $artist;?> </span>
                     </div>
-                    <div class="login_info">
-                        <label class="label_text" for="rating">Rating*</label>
+                    <div style="text-align:center;" class="login_info">
+                        <label class="label_text" for="rating">Rating:</label>
                         <input required type="text" id="rating" name="rating" value= "<?php echo $rating;?>">
                     </div>
                     <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);">
@@ -123,7 +113,6 @@ session_start();
                         <input type="submit" name="submit" value="Submit" class="submit_btn" style="padding:10px 30px; font-size: 22px;"/>
                         <a href="ratings.php" class="submit_btn" style="padding:10px 30px; font-size: 22px; text-decoration: none;">Cancel</a>
                     </div>
-                    <p class="label_text" style="text-align: center; font-size: 17px; margin-right: 0px;">*Required</p>
                 </form>
             </div>
         </div>
