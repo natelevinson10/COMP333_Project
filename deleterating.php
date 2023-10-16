@@ -35,6 +35,20 @@ session_start();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["confirm"])) {
                 if ($id !== null) {
+                    $sql = "SELECT * FROM ratings WHERE id = ?";
+                    $stmt = mysqli_prepare($conn, $sql);
+                    mysqli_stmt_bind_param($stmt, "i", $id);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $num = mysqli_num_rows($result);
+
+                    if ($num > 0) {
+                        $username = $row['username'];
+                    }
+                    if ($username != $user){
+                        $out_value = "You can only delete your own ratings!";
+                    }
+                    else{     
                     $sql = "DELETE FROM ratings WHERE id = ?";
 
                     $stmt = mysqli_prepare($conn, $sql);
@@ -48,7 +62,8 @@ session_start();
                     } else {
                         echo "Error deleting record: " . $conn->error;
                     }
-                } else {
+                } 
+                }  else {
                     echo "ID is not set.";
                 }
             } elseif (isset($_POST["reject"])) {
@@ -87,6 +102,9 @@ session_start();
                   <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="confirm" value="Yes"/>
                   <input class="submit_btn" style="padding:10px 30px; font-size: 22px;" type="submit" name="reject" value="No"/>
                 </form>
+                <p class="label_text" style="text-align: center; font-size: 17px; color: rgb(221, 84, 84);">
+                    <?php if(!empty($out_value)){echo $out_value;}?>
+                </p>
             </div>
         </div>
     </div>
