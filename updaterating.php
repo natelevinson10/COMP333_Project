@@ -50,7 +50,7 @@ session_start();
                 $song = $row['song'];
                 $artist = $row['artist'];
                 $rating = $row['rating'];
-                $username = $row['rating'];
+                $username = $row['username'];
             }        
 
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
