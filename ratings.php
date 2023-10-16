@@ -34,6 +34,7 @@ session_start();
         
         $sql_fetch_data = "SELECT * FROM ratings";
         $result_fetch_data = $conn->query($sql_fetch_data);
+        
 
         $conn->close();
     ?>
@@ -81,9 +82,12 @@ session_start();
                         echo "<td class='table_cell'>".$row["artist"]."</td>";
                         echo "<td class='table_cell'>".$row["song"]."</td>";
                         echo "<td class='table_cell'>".$row["rating"]."</td>";
-                        echo "<td class='table_cell'><a href='viewrating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>View</a>
-                                                     <a href='updaterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Update</a>
-                                                     <a href='deleterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Delete</a></td>";
+                        echo "<td class='table_cell'><a href='viewrating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>View</a>";
+                        if ($row["username"] === $user) {
+                            echo "<a href='updaterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Update</a>";
+                            echo "<a href='deleterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Delete</a>";
+                        }
+                        echo "</td>";
                         echo "</tr>";
                     }
                 ?>
