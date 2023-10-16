@@ -20,7 +20,7 @@ session_start();
 
 <body>
     <?php
-        if ($_SESSION["loggedin"]) {
+        if (!$_SESSION["loggedin"]) {
             header('Location: ratings.php');
         }
         $servername = "localhost";
