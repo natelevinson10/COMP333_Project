@@ -50,13 +50,18 @@ session_start();
                 $song = $row['song'];
                 $artist = $row['artist'];
                 $rating = $row['rating'];
-            }
-        
+                $username = $row['rating'];
+            }        
+
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         
             $updatedRating = $_POST['rating'];
+            
+            if ($username != $user){
+                $out_value = "You can only edit your own ratings!";
+            }
 
-            if (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
+            elseif (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
             else {
