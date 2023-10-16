@@ -40,25 +40,33 @@ session_start();
     ?>
     <div id="navbar" class="row navbar">
         <div class="navbar_logo" style= "padding-top:20px;">
-            <p style="margin: 0; height: 60px;"><a href="logout.php" style="cursor: pointer;" aria-label="Return to top of landing page">
-            <img src="images/logo.webp" id="logo" alt="lovenotes logo" style="width: 178px; height: 50px;" loading="lazy"/>
-            </a></p>
+            <p style='margin: 0; height: 60px;'>
+                <a href='index.html' style='cursor: pointer;' aria-label='Return to top of landing page'>
+                    <img src='images/logo.webp' id='logo' alt='lovenotes logo' style='width: 178px; height: 50px;' loading='lazy'/>
+                </a>
+            </p>
         </div>
         <ul id="navbar_items">
-            <li><a id="login-btn" href="logout.php">Log Out</a></li>
+            <?php if($_SESSION["loggedin"]) {echo "<li><a id='login-btn' href='logout.php'>Log Out</a></li>";}
+            else {echo "<li><a id='login-btn' href='index.html'>Home</a></li>
+                        <li><a id='login-btn' href='login.php'>Login</a></li>";}
+            ?>
         </ul>
         <button id="more-button" aria-label="Show navigation links" onclick="showNavItems()">
             <i id="more-icon" class="fa-solid fa-list" style="color:rgb(233, 175, 204); font-size: 25px;"></i>
         </button>
         <ul id="navbar_list">
-            <li style="margin-bottom: 10px;"><a id="nav_item_list" href="logout.php">Log Out</a></li>
+            <?php if($_SESSION["loggedin"]) {echo "<li style='margin-bottom: 10px;'><a id='nav_item_list' href='logout.php'>Log Out</a></li>";}
+            else {echo "<li><a id='nav_item_list' href='index.html'>Home</a></li>
+                        <li style='margin-bottom: 10px;'><a id='nav_item_list' href='login.php'>Login</a></li>";}
+            ?>
         </ul>
     </div>
 
     <!-- Rating section -->
     <div id="Rating" class="container" style="padding-top:40px;">
         <div class="row home">
-                <h1 style="font-size:80px; color: rgb(4, 57, 94); margin-bottom:30px;";>Welcome, <?php echo $user; ?>!</h1>
+                <h1 style="font-size:80px; color: rgb(4, 57, 94); margin-bottom:30px;";>Welcome<?php if($_SESSION["loggedin"]) {echo ", $user";}?>!</h1>
         </div>
         <div class="rating_btns" style="text-align:center; margin: 10px auto; margin-bottom:30px;">
             <a href="addrating.php"><button id="rating_btn" style="margin: 5px 0px; padding: 10px 20px;">Rate a Song!</button></a>
