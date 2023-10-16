@@ -20,6 +20,10 @@ session_start();
 
 <body>
     <?php
+        if ($_SESSION["loggedin"]) {
+            header('Location: ratings.php');
+        }
+
         //error_reporting(E_ALL);
         //ini_set('display_errors', '1');
         $servername = "localhost";
