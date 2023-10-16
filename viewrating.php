@@ -20,6 +20,7 @@ session_start();
 
 <body>
     <?php
+        //establish and check connection
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -39,6 +40,7 @@ session_start();
         $rating = "";
         
         if ($id !== null) {
+            //parameterized query to prevent SQL Injections
             $sql = "SELECT * FROM ratings WHERE id = ?";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "i", $id);

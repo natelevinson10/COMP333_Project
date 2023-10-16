@@ -21,6 +21,7 @@ session_start();
     <!-- Navigation Bar -->
 <body>
     <?php
+        //establish and check connection
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -32,6 +33,7 @@ session_start();
         die("Connection failed: " . $conn->connect_error);
         }
         
+        //parameterized query to prevent SQL Injections
         $sql_fetch_data = "SELECT * FROM ratings";
         $result_fetch_data = $conn->query($sql_fetch_data);
         

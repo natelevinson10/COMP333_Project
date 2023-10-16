@@ -20,12 +20,11 @@ session_start();
 
 <body>
     <?php
+        //establish and check connection
         if ($_SESSION["loggedin"]) {
             header('Location: ratings.php');
         }
 
-        //error_reporting(E_ALL);
-        //ini_set('display_errors', '1');
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -39,7 +38,7 @@ session_start();
             $user = $_REQUEST['userid'];
             $pass = $_REQUEST['login_password_1'];
 
-            //prepared statement
+            //parameterized query to prevent SQL Injections
             $sql_query = "SELECT password FROM users WHERE username = ?";
             $stmt = mysqli_prepare($conn, $sql_query);
             mysqli_stmt_bind_param($stmt, "s", $user);

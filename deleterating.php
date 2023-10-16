@@ -20,6 +20,7 @@ session_start();
 
 <body>  
     <?php
+        //create and check  connection
         if (!$_SESSION["loggedin"]) {
             header('Location: ratings.php');
         }
@@ -38,6 +39,7 @@ session_start();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["confirm"])) {
                 if ($id !== null) {
+                    //parameterized query to prevent SQL Injections
                     $sql = "SELECT * FROM ratings WHERE id = ?";
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "i", $id);
@@ -51,9 +53,9 @@ session_start();
                     if ($username != $user){
                         $out_value = "You can only delete your own ratings!";
                     }
-                    else{     
+                    else{  
+                    //parameterized query to prevent SQL Injections
                     $sql = "DELETE FROM ratings WHERE id = ?";
-
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "i", $id);
                     mysqli_stmt_execute($stmt);

@@ -22,6 +22,8 @@ $user = isset($_SESSION["loggedin"]) ? $_SESSION["username"] : '';
 
 <body>
     <?php
+
+        //create and check  connection
         if (!$_SESSION["loggedin"]) {
             header('Location: login.php');
         }
@@ -43,7 +45,8 @@ $user = isset($_SESSION["loggedin"]) ? $_SESSION["username"] : '';
             $artist = $_POST['artist'];
             $rating = $_POST['rating'];
             $user = $_SESSION["username"];
-
+            
+            //parameterized query to prevent SQL Injections
             $sql_query = "SELECT * FROM ratings WHERE username = ? AND song = ? AND artist = ?";
             $stmt = mysqli_prepare($conn, $sql_query);
             mysqli_stmt_bind_param($stmt, "sss", $user, $song, $artist);
@@ -58,7 +61,7 @@ $user = isset($_SESSION["loggedin"]) ? $_SESSION["username"] : '';
                 $out_value = "You have already rated this song!";
             }
             else {
-
+                //parameterized query to prevent SQL Injections
                 $sql_query1 = "INSERT INTO ratings (username, song, artist, rating) VALUES (?, ?, ?, ?)";
                 $stmt1 = mysqli_prepare($conn, $sql_query1);
                 mysqli_stmt_bind_param($stmt1, "sssi", $user, $song, $artist, $rating);
