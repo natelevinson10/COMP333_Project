@@ -83,6 +83,9 @@ session_start();
             <img src="images/logo.webp" id="logo" alt="lovenotes logo" style="width: 178px; height: 50px;" loading="lazy"/>
             </a></p>
         </div>
+        <div id="hi-message" style="padding-top: 35px; font-family: 'Lobster Two', cursive; color: rgb(233, 175, 204);">
+            <?php if($_SESSION["loggedin"]) {echo "Hi, $user";}?>
+        </div>
         <ul id="navbar_items">
             <li><a id="login-btn" href="ratings.php">Home</a></li>
         </ul>

@@ -52,7 +52,8 @@ body {
   text-align: right;
 }
 
-.label_text {
+.label_text,
+#hi-message {
   font-family: 'Lobster Two', cursive;
   color: rgb(4, 57, 94);
   font-size: 25px;

@@ -46,6 +46,9 @@ session_start();
                 </a>
             </p>
         </div>
+        <div id="hi-message" style="padding-top: 35px; font-family: 'Lobster Two', cursive; color: rgb(233, 175, 204);">
+            <?php if($_SESSION["loggedin"]) {echo "Hi, $user";}?>
+        </div>
         <ul id="navbar_items">
             <?php if($_SESSION["loggedin"]) {echo "<li><a id='login-btn' href='logout.php'>Log Out</a></li>";}
             else {echo "<li><a id='login-btn' href='index.html'>Home</a></li>
