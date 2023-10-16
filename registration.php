@@ -20,12 +20,11 @@ session_start();
 
 <body>
     <?php
+        //create and check  connection
+
         if ($_SESSION["loggedin"]) {
             header('Location: ratings.php');
         }
-
-        //error_reporting(E_ALL);
-        //ini_set('display_errors', '1');
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -43,7 +42,7 @@ session_start();
             $password_2 =  $_POST['reg_password_2'];
             $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
 
-
+            //parameterized query to prevent SQL Injections
             $sql_query1 = "SELECT * FROM users WHERE username = ?";
             $stmt = mysqli_prepare($conn, $sql_query1);
             mysqli_stmt_bind_param($stmt, "s", $user);
@@ -61,6 +60,7 @@ session_start();
                 $out_value = "Passwords must match!";
             }
             else {
+                //parameterized query to prevent SQL Injections
                 $sql_query2 = "INSERT INTO users (username, password) VALUES (?, ?)";
                 $stmt = mysqli_prepare($conn, $sql_query2);
                 mysqli_stmt_bind_param($stmt, "ss", $user, $hashed_password);

@@ -23,10 +23,7 @@ session_start();
         if (!$_SESSION["loggedin"]) {
             header('Location: login.php');
         }
-
-        //error_reporting(E_ALL);
-        //ini_set('display_errors', '1');
-
+        
         if(isset($_REQUEST["confirm"])){
             session_destroy(); 
             header("Location: index.html"); 

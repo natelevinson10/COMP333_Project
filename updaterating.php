@@ -20,6 +20,7 @@ session_start();
 
 <body>
     <?php
+        //establish and check connection
         if (!$_SESSION["loggedin"]) {
             header('Location: ratings.php');
         }
@@ -41,6 +42,7 @@ session_start();
         $rating = "";
         
         if ($id !== null) {
+            //parameterized query to prevent SQL Injections
             $sql = "SELECT * FROM ratings WHERE id = ?";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "i", $id);
@@ -68,6 +70,7 @@ session_start();
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
             else {
+                //parameterized query to prevent SQL Injections
                 $sql = "UPDATE ratings SET song = ?, artist = ?, rating =? WHERE id = ?";
                 $stmt = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt, "ssii", $song, $artist, $updatedRating, $id);
