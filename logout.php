@@ -20,8 +20,12 @@ session_start();
 
 <body>
     <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
+        if (!$_SESSION["loggedin"]) {
+            header('Location: login.php');
+        }
+
+        //error_reporting(E_ALL);
+        //ini_set('display_errors', '1');
 
         if(isset($_REQUEST["confirm"])){
             session_destroy(); 
