@@ -33,6 +33,7 @@ session_start();
         if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         }
+        // if submit button is hit
         if(isset($_REQUEST["submit"])){
             $out_value = "";
             $user = $_REQUEST['userid'];
@@ -61,7 +62,7 @@ session_start();
                     $_SESSION["loggedin"] = true;
                     $_SESSION["username"] = $user;
                     $_SESSION["password"] = $hashed_pass;
-                    //redirect (will eventually be ratings page)
+                    //redirect
                     header('Location: ratings.php');
                 }
             }

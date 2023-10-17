@@ -27,8 +27,9 @@ $user = isset($_SESSION["loggedin"]) ? $_SESSION["username"] : '';
         if (!$_SESSION["loggedin"]) {
             header('Location: login.php');
         }
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
+        // display errors
+        //error_reporting(E_ALL);
+        //ini_set('display_errors', '1');
         $out_value = "";
         $servername = "localhost";
         $username = "root";
@@ -40,6 +41,7 @@ $user = isset($_SESSION["loggedin"]) ? $_SESSION["username"] : '';
             die("Connection failed: " . $conn->connect_error);
         }
 
+        // if submit button is hit
         if(isset($_REQUEST["submit"])){
             $song = $_POST['song'];
             $artist = $_POST['artist'];
@@ -54,12 +56,15 @@ $user = isset($_SESSION["loggedin"]) ? $_SESSION["username"] : '';
             $result = mysqli_stmt_get_result($stmt);
             $row = mysqli_fetch_assoc($result);
 
+            // if rating is NOT between 1 and 5
             if (!(($rating >= 1) && ($rating <= 5))) {
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
+            // else if there is an identical entry
             elseif (!(is_null($row))) {
                 $out_value = "You have already rated this song!";
             }
+            // else input new rating
             else {
                 //parameterized query to prevent SQL Injections
                 $sql_query1 = "INSERT INTO ratings (username, song, artist, rating) VALUES (?, ?, ?, ?)";

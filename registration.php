@@ -35,6 +35,7 @@ session_start();
         die("Connection failed: " . $conn->connect_error);
         }
 
+        // if submit button is hit
         if(isset($_REQUEST["submit"])){
             $out_value = "";
             $user =  $_POST['userid'];
@@ -50,15 +51,19 @@ session_start();
             $result = mysqli_stmt_get_result($stmt);
             $row = mysqli_fetch_assoc($result);
 
+            // if there's an entry found, username is taken
             if(!(is_null($row))) {
                 $out_value = "Username is taken! Please pick a different username.";
             }
+            // else if the password length is less than 10 characters, send error saying it must be made longer
             elseif (strlen($password_1)<10) {
                 $out_value = "Password must be at least 10 characters long!";
             }
+            // else if passwords don't match, send error saying they must match
             elseif ($password_1 != $password_2) {
                 $out_value = "Passwords must match!";
             }
+            // else insert into user table
             else {
                 //parameterized query to prevent SQL Injections
                 $sql_query2 = "INSERT INTO users (username, password) VALUES (?, ?)";
@@ -71,6 +76,7 @@ session_start();
                     $out_value = "ERROR: Hush! Sorry $sql. " . mysqli_error($conn);
                 }
                 else {
+                    // assign global sesssion variables and redirect to ratings home
                     $_SESSION["loggedin"] = true;
                     $_SESSION["username"] = $user;
                     $_SESSION["password"] = $hashed_password;
