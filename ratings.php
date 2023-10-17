@@ -33,7 +33,7 @@ session_start();
         die("Connection failed: " . $conn->connect_error);
         }
         
-        //parameterized query to prevent SQL Injections
+        //no parameterized query necessary, as no user input
         $sql_fetch_data = "SELECT * FROM ratings";
         $result_fetch_data = $conn->query($sql_fetch_data);
         
@@ -52,7 +52,10 @@ session_start();
             <?php if($_SESSION["loggedin"]) {echo "Hi, $user";}?>
         </div>
         <ul id="navbar_items">
-            <?php if($_SESSION["loggedin"]) {echo "<li><a id='login-btn' href='logout.php'>Log Out</a></li>";}
+            <?php 
+            // if logged in, show user a Log Out button
+            if($_SESSION["loggedin"]) {echo "<li><a id='login-btn' href='logout.php'>Log Out</a></li>";}
+            // if not logged in, show them a Home and Login button
             else {echo "<li><a id='login-btn' href='index.html'>Home</a></li>
                         <li><a id='login-btn' href='login.php'>Login</a></li>";}
             ?>
@@ -61,7 +64,10 @@ session_start();
             <i id="more-icon" class="fa-solid fa-list" style="color:rgb(233, 175, 204); font-size: 25px;"></i>
         </button>
         <ul id="navbar_list">
-            <?php if($_SESSION["loggedin"]) {echo "<li style='margin-bottom: 10px;'><a id='nav_item_list' href='logout.php'>Log Out</a></li>";}
+            <?php 
+            // if logged in, show user a Log Out button
+            if($_SESSION["loggedin"]) {echo "<li style='margin-bottom: 10px;'><a id='nav_item_list' href='logout.php'>Log Out</a></li>";}
+            // if not logged in, show them a Home and Login button
             else {echo "<li><a id='nav_item_list' href='index.html'>Home</a></li>
                         <li style='margin-bottom: 10px;'><a id='nav_item_list' href='login.php'>Login</a></li>";}
             ?>
@@ -88,6 +94,7 @@ session_start();
             </tr>
             <tbody id="ratingTableBody">
                 <?php
+                    // display info in ratings table
                     while($row = $result_fetch_data->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td class='table_cell'>".$row["id"]."</td>";
@@ -96,6 +103,7 @@ session_start();
                         echo "<td class='table_cell'>".$row["song"]."</td>";
                         echo "<td class='table_cell'>".$row["rating"]."</td>";
                         echo "<td class='table_cell'><a href='viewrating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>View</a>";
+                        // if user's own ratings, show update and delete buttons
                         if ($row["username"] === $user) {
                             echo "<a href='updaterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Update</a>";
                             echo "<a href='deleterating.php?id=" . $row["id"] . "' style='margin:0px 10px;'>Delete</a>";

@@ -20,14 +20,18 @@ session_start();
 
 <body>
     <?php
+        // check to make sure user is logged in
+        // if not, redirect to login page (should only happen if page is requested manually)
         if (!$_SESSION["loggedin"]) {
             header('Location: login.php');
         }
         
+        // if submit button is hit, end session and redirect to landing
         if(isset($_REQUEST["confirm"])){
             session_destroy(); 
             header("Location: index.html"); 
         }
+        // if cancel button is hit, go back to ratings home
         elseif(isset($_REQUEST["reject"])) {
             header("Location: ratings.php"); 
         }

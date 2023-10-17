@@ -39,6 +39,7 @@ session_start();
         $artist = "";
         $rating = "";
         
+        // pull entry info from id
         if ($id !== null) {
             //parameterized query to prevent SQL Injections
             $sql = "SELECT * FROM ratings WHERE id = ?";

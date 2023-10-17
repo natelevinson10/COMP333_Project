@@ -51,6 +51,7 @@ session_start();
             $num = mysqli_num_rows($result);
 
             if ($num > 0) {
+                // get info for rating entry
                 $row = mysqli_fetch_assoc($result);
                 $song = $row['song'];
                 $artist = $row['artist'];
@@ -58,18 +59,21 @@ session_start();
                 $username = $row['username'];
             }        
 
+        // if submit button is hit
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         
             $updatedRating = $_POST['rating'];
             
+            // make sure current user is owner of the rating (should only be necessary if page is requested manually)
             if ($username != $user){
                 $out_value = "You can only edit your own ratings!";
             }
-
+            // confirm rating is an int between 1 and 5 inclusive
             elseif (!is_numeric($updatedRating) || $updatedRating < 1 || $updatedRating > 5) {
                 $out_value = "Rating must be an integer between 1 and 5.";
             }
             else {
+                // update entry
                 //parameterized query to prevent SQL Injections
                 $sql = "UPDATE ratings SET song = ?, artist = ?, rating =? WHERE id = ?";
                 $stmt = mysqli_prepare($conn, $sql);

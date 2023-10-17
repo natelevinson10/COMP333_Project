@@ -37,6 +37,7 @@ session_start();
         $id = isset($_GET['id']) ? $_GET['id'] : null;
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // if submit button is hit
             if (isset($_POST["confirm"])) {
                 if ($id !== null) {
                     //parameterized query to prevent SQL Injections
