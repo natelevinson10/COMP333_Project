@@ -77,7 +77,7 @@ session_start();
             <a href="addrating.php"><button id="rating_btn" style="margin: 5px 0px; padding: 10px 20px;">Rate a Song!</button></a>
         </div>
 
-        <table style="width: 100%; background-color: rgb(165, 197, 223);">
+        <table style="width: 100%; background-color: rgb(165, 197, 223); margin: 0px -15px;">
             <tr>
                 <th class="table_header">ID</th>
                 <th class="table_header">Username</th>
