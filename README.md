@@ -27,5 +27,7 @@ Developers🧑‍🔬:\
 Nate Levinson and Bella Tassone
 
 HW1 participation📝: 50/50 split
+HW2 participation📝: 50/50 split
+
 
 **NOTE**: Bella's local git config wasn't synced up with her github account, and this was only noticed halfway through the project. As a result, the contributions look a little funky. If you look at the commits individually then everything is correct, but in the summaries (Pulse tab) it shows her total commits as two separate users, and additionally the Contributors tab doesn't show any of the commits that she made before syncing her local git config up to her github account.
