@@ -86,6 +86,22 @@ body {
   text-decoration: underline;
 }
 
+table {
+  border-collapse: collapse;
+}
+tr, th, td { 
+  border: solid;
+  border-color: rgb(4, 57, 94);
+  border-width: 1px 1px;
+}
+
+tr:first-child {
+  border-top: none;
+}
+tr:last-child {
+  border-bottom: none;
+}
+
 /*Navbar*/
 .navbar {
   background-color: rgb(4, 59, 98);
