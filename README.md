@@ -26,7 +26,7 @@ Development Environment🛠️:\
 Developers🧑‍🔬:\
 Nate Levinson and Bella Tassone
 
-HW1 participation📝: 50/50 split
+HW1 participation📝: 50/50 split\
 HW2 participation📝: 50/50 split
 
 
